@@ -1,16 +1,52 @@
-/node_modules
+# Dependencies
+node_modules/
 /.pnp
 .pnp.js
+/.yarn/install-state.gz
+
+# Testing
+/coverage
+
+# Next.js
 /.next/
 /out/
-next-env.d.ts
-/build
-/dist
-/coverage
+/build/
+dist/
+
+# Misc
 .DS_Store
 *.pem
-*.tsbuildinfo
+
+# Debug
 npm-debug.log*
 yarn-debug.log*
+yarn-error.log*
+
+# Local env files
 .env
-.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# OS
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Build analysis
+analyze-stats.json
+analyze-report.html
+
+# Generated files
+next-env.d.ts
+*.tsbuildinfo
