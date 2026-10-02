@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-vazirmatn), ui-sans-serif, system-ui, "Segoe UI", Tahoma, sans-serif;
+
+  /* سرمه‌ای عمیق */
+  --color-navy-950: #050b1a;
+  --color-navy-900: #0a1630;
+  --color-navy-800: #0f1f44;
+  --color-navy-700: #162b5c;
+  --color-navy-600: #1e3a78;
+
+  /* آبی الکتریکی */
+  --color-electric-300: #9bb9ff;
+  --color-electric-400: #6b95ff;
+  --color-electric-500: #3b6cff;
+  --color-electric-600: #2563eb;
+  --color-electric-700: #1d4ed8;
+
+  --color-cyan-glow: #22d3ee;
+  --color-gold-400: #c9a227;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(50%); }
+  }
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgb(59 108 255 / 0.45); }
+    70% { box-shadow: 0 0 0 14px rgb(59 108 255 / 0); }
+    100% { box-shadow: 0 0 0 0 rgb(59 108 255 / 0); }
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-padding-top: 6rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+body {
+  background-color: var(--color-navy-950);
+  color: #e2e8f0;
+  font-family: var(--font-sans);
+  line-height: 1.8;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection { background: rgb(59 108 255 / 0.45); color: #fff; }
+
+:focus-visible {
+  outline: 2px solid var(--color-electric-400);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+img, video { max-width: 100%; height: auto; }
+
+/* ───────────── ابزارهای طراحی ───────────── */
+@utility glass {
+  background: linear-gradient(145deg, rgb(255 255 255 / 0.07), rgb(255 255 255 / 0.025));
+  border: 1px solid rgb(255 255 255 / 0.1);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 10px 40px -12px rgb(0 0 0 / 0.55);
+}
+
+@utility glass-strong {
+  background: linear-gradient(145deg, rgb(255 255 255 / 0.11), rgb(255 255 255 / 0.04));
+  border: 1px solid rgb(255 255 255 / 0.14);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1), 0 20px 60px -20px rgb(0 0 0 / 0.7);
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(120deg, #ffffff 10%, #b8ccff 45%, #6b95ff 80%, #22d3ee 110%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-blue {
+  background-image: linear-gradient(120deg, #6b95ff 0%, #3b6cff 45%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(148 163 184 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(148 163 184 / 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 40%, transparent 100%);
+}
+
+@utility bg-aurora {
+  background:
+    radial-gradient(60% 50% at 80% 0%, rgb(37 99 235 / 0.35), transparent 70%),
+    radial-gradient(50% 45% at 10% 20%, rgb(34 211 238 / 0.14), transparent 70%),
+    radial-gradient(70% 60% at 50% 100%, rgb(30 58 120 / 0.45), transparent 70%);
+}
+
+@utility hairline {
+  border: 1px solid rgb(255 255 255 / 0.08);
+}
+
+/* ───────────── متن مقاله ───────────── */
+.prose-karen {
+  color: #cbd5e1;
+  font-size: 1.0625rem;
+  line-height: 2.15;
+}
+.prose-karen > * + * { margin-top: 1.25rem; }
+.prose-karen h2 {
+  margin-top: 2.75rem;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+  scroll-margin-top: 6rem;
+}
+.prose-karen h3 { margin-top: 2rem; font-size: 1.25rem; font-weight: 700; color: var(--color-electric-300); }
+.prose-karen h4 { font-weight: 700; color: #fff; }
+.prose-karen p { text-wrap: pretty; }
+.prose-karen strong { color: #fff; font-weight: 700; }
+.prose-karen a { color: var(--color-electric-300); text-decoration: underline; text-underline-offset: 5px; text-decoration-color: rgb(155 185 255 / 0.4); transition: color .2s, text-decoration-color .2s; }
+.prose-karen a:hover { color: #fff; text-decoration-color: #fff; }
+.prose-karen ul, .prose-karen ol { padding-inline-start: 1.5rem; }
+.prose-karen ul { list-style: none; }
+.prose-karen ul > li { position: relative; padding-inline-start: .25rem; }
+.prose-karen ul > li::before {
+  content: ""; position: absolute; inset-inline-start: -1.1rem; top: 1.05em;
+  width: .45rem; height: .45rem; border-radius: 9999px;
+  background: linear-gradient(135deg, var(--color-electric-400), var(--color-cyan-glow));
+}
+.prose-karen ol { list-style: decimal; }
+.prose-karen li + li { margin-top: .5rem; }
+.prose-karen li::marker { color: var(--color-electric-400); font-weight: 700; }
+.prose-karen blockquote {
+  border-inline-start: 3px solid var(--color-electric-500);
+  background: linear-gradient(90deg, rgb(59 108 255 / .1), transparent);
+  padding: 1rem 1.25rem; border-radius: .75rem; color: #e2e8f0; font-weight: 500;
+}
+.prose-karen .callout {
+  border: 1px solid rgb(107 149 255 / .3);
+  background: linear-gradient(145deg, rgb(37 99 235 / .14), rgb(34 211 238 / .05));
+  border-radius: 1rem; padding: 1.1rem 1.4rem;
+}
+.prose-karen .callout > * + * { margin-top: .6rem; }
+.prose-karen img { border-radius: 1rem; margin-inline: auto; border: 1px solid rgb(255 255 255 / .08); }
+.prose-karen table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.prose-karen th, .prose-karen td { border: 1px solid rgb(255 255 255 / .1); padding: .6rem .8rem; text-align: start; }
+.prose-karen th { background: rgb(255 255 255 / .05); color: #fff; }
+
+/* فیلد فرم‌ها */
+.field-input {
+  width: 100%;
+  border-radius: .85rem;
+  border: 1px solid rgb(255 255 255 / .14);
+  background: rgb(5 11 26 / .6);
+  padding: .8rem 1rem;
+  color: #fff;
+  font: inherit;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.field-input::placeholder { color: #8394ad; }
+.field-input:hover { border-color: rgb(255 255 255 / .28); }
+.field-input:focus { outline: none; border-color: var(--color-electric-400); box-shadow: 0 0 0 4px rgb(59 108 255 / .22); background: rgb(5 11 26 / .85); }
+.field-input[aria-invalid="true"] { border-color: #f87171; }
+select.field-input { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: left .9rem center; padding-inline-end: 1rem; padding-left: 2.4rem; }
+select.field-input option { background: var(--color-navy-900); color: #fff; }
+
+/* کاهش حرکت */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* مخفی کردن اسکرول‌بار افقی در فیلترها */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
