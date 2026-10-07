@@ -54,6 +54,7 @@ export const IMAGE_SIZES: Record<string, readonly [number, number]> = {
   "/images/logo.png": [500, 500],
   "/images/mug.webp": [1200, 1129],
   "/images/og-image.jpg": [1200, 630],
+  "/images/portfolio/dastmozd-og.png": [1200, 630],
   "/images/saharnajafi.webp": [1200, 1200],
   "/images/slider/calendar/1.webp": [1366, 717],
   "/images/slider/cases/1.webp": [1366, 728],

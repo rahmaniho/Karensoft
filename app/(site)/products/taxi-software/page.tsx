@@ -12,7 +12,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { FaqList } from "@/components/shared/FaqList";
-import { FormspreeForm, type FormFieldConfig } from "@/components/shared/FormspreeForm";
+import { ContactForm, type FormFieldConfig } from "@/components/shared/ContactForm";
 import { Reveal, Stagger, StaggerItem } from "@/components/shared/Reveal";
 
 const TITLE = "نرم‌افزار مدیریت تاکسی تلفنی — رایگان برای همه آژانس‌ها";
@@ -115,7 +115,7 @@ export default function TaxiSoftwarePage() {
           <Card className="p-6 sm:p-9">
             <h2 id="download-title" className="text-2xl font-extrabold text-white">دریافت یا درخواست نرم‌افزار</h2>
             <p className="mb-7 mt-2 leading-8 text-slate-300">اطلاعات آژانس را بنویسید تا راهنمای استفاده، آموزش و پشتیبانی را برایتان ارسال کنیم. استفاده از نرم‌افزار هیچ هزینه‌ای ندارد.</p>
-            <FormspreeForm
+            <ContactForm
               formId="taxi"
               fields={FIELDS}
               subject="درخواست نرم‌افزار رایگان مدیریت تاکسی تلفنی"

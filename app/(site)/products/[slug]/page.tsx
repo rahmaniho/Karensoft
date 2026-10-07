@@ -12,7 +12,7 @@ import { Img } from "@/components/ui/Img";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BrowserMockup } from "@/components/demos/DeviceMockups";
-import { FormspreeForm, type FormFieldConfig } from "@/components/shared/FormspreeForm";
+import { ContactForm, type FormFieldConfig } from "@/components/shared/ContactForm";
 import { PageHero } from "@/components/shared/PageHero";
 import { Reveal, Stagger, StaggerItem } from "@/components/shared/Reveal";
 
@@ -86,7 +86,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="shots-title">
           <SectionHeading eyebrow="تصاویر محیط نرم‌افزار" title={<span id="shots-title">نگاهی به داخل برنامه</span>} />
           <Reveal className="mx-auto mt-12 max-w-4xl">
-            <BrowserMockup src={LAW_SHOTS[0].src} alt={LAW_SHOTS[0].alt} url="Karen Soft · Law Office" />
+            <BrowserMockup src={LAW_SHOTS[0]!.src} alt={LAW_SHOTS[0]!.alt} url="Karen Soft · Law Office" />
           </Reveal>
           <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {LAW_SHOTS.slice(1).map((s) => (
@@ -118,7 +118,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           {p.modules.map((m, i) => (
             <StaggerItem key={m.title}>
               <Card interactive className="h-full p-6">
-                <Icon name={MODULE_ICONS[i % MODULE_ICONS.length]} className="size-7 text-electric-300" />
+                <Icon name={MODULE_ICONS[i % MODULE_ICONS.length] ?? "Layout"} className="size-7 text-electric-300" />
                 <h3 className="mt-4 text-lg font-extrabold text-white">{m.title}</h3>
                 <p className="mt-2 leading-8 text-slate-300">{m.desc}</p>
               </Card>
@@ -147,7 +147,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
             <p className="mb-7 mt-2 leading-8 text-slate-300">
               {isActive ? "اطلاعات خود را بگذارید تا نسخهٔ آزمایشی و راهنمای نصب را برایتان ارسال کنیم." : "این محصول هنوز منتشر نشده است. شمارهٔ تماس‌تان را بگذارید تا هنگام انتشار به شما اطلاع دهیم."}
             </p>
-            <FormspreeForm
+            <ContactForm
               formId={`product-${p.slug}`}
               fields={fields}
               subject={`${isActive ? "درخواست نسخه آزمایشی" : "اطلاع‌رسانی انتشار"}: ${p.name}`}

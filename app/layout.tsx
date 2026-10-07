@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/shared/SmoothScroll";
 import { ScrollProgress } from "@/components/shared/ScrollProgress";
+import { CrispChat } from "@/components/shared/CrispChat";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { organizationLd, websiteLd } from "@/lib/schema";
 import { siteConfig } from "@/lib/siteConfig";
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           {children}
           <Footer />
+          <CrispChat />
         </SmoothScroll>
       </body>
     </html>

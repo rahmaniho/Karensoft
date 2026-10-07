@@ -18,6 +18,7 @@ const DEVICES: { id: Device; label: string; Icon: typeof Monitor; width: string 
 
 function Preview({ industryIndex, device }: { industryIndex: number; device: Device }) {
   const industry = INDUSTRIES[industryIndex];
+  if (!industry) return null;
   const p = industry.palette;
   const width = DEVICES.find((d) => d.id === device)?.width ?? "100%";
   return (

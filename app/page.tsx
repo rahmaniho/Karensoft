@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
-import { AboutTeaser, BlogSection, DemosSection, HomeFaq, IndustriesTeaser, ProcessSection, ProductsSection, ServicesSection, TaxiBanner } from "@/components/sections/HomeSections";
+import { AboutTeaser, BlogSection, HomeFaq, IndustriesTeaser, PortfolioHighlights, ProcessSection, ProductsSection, ServicesSection, TaxiBanner } from "@/components/sections/HomeSections";
 import { CTASection } from "@/components/shared/CTASection";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/siteConfig";
@@ -17,7 +17,7 @@ export default function HomePage() {
       <TaxiBanner />
       <ProductsSection />
       <ServicesSection />
-      <DemosSection />
+      <PortfolioHighlights />
       <AboutTeaser />
       <ProcessSection />
       <IndustriesTeaser />
