@@ -4,7 +4,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { ArrowLeft, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Img } from "@/components/ui/Img";
-import { BrowserMockup, PhoneMockup } from "@/components/demos/DeviceMockups";
+import { BrowserMockup } from "@/components/demos/DeviceMockups";
 import { HeroVideo } from "@/components/sections/HeroVideo";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -46,11 +46,11 @@ export function Hero() {
             نرم‌افزار مدیریت دفتر وکالت، نرم‌افزار <strong className="font-bold text-white">رایگان</strong> مدیریت تاکسی تلفنی، چاپ و صحافی و طراحی وب؛ ابزارهایی ساده که کار روزمرهٔ شما را سبک‌تر می‌کنند.
           </motion.p>
           <motion.div {...item(3)} className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Button href="/products/taxi-software/" size="lg">
-              دریافت رایگان نرم‌افزار تاکسی
+            <Button href="/contact/" size="lg">
+              مشاورهٔ رایگان پروژه
               <ArrowLeft className="size-5 transition-transform group-hover/btn:-translate-x-1" aria-hidden="true" />
             </Button>
-            <Button href="/products/" variant="secondary" size="lg">مشاهده محصولات</Button>
+            <Button href="/portfolio/" variant="secondary" size="lg">مشاهدهٔ نمونه‌کارهای زنده</Button>
           </motion.div>
           <motion.ul {...item(4)} className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-white/10 pt-8">
             {[

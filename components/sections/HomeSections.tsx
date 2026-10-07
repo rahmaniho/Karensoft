@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { BLOG_POSTS } from "@/lib/blog";
-import { DEMOS } from "@/lib/demos";
+import { PORTFOLIO_ITEMS } from "@/lib/portfolio";
 import { HOME_FAQS, PROCESS_STEPS, SERVICES } from "@/lib/constants";
 import { INDUSTRIES } from "@/lib/industries";
 import { PRODUCTS } from "@/lib/products";
@@ -12,7 +12,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Img } from "@/components/ui/Img";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { BlogCard } from "@/components/shared/BlogCard";
-import { DemoCard } from "@/components/shared/DemoCard";
+import { PortfolioCard } from "@/components/shared/PortfolioCard";
 import { FaqList } from "@/components/shared/FaqList";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { Reveal, Stagger, StaggerItem } from "@/components/shared/Reveal";
@@ -105,21 +105,26 @@ export function ServicesSection() {
   );
 }
 
-export function DemosSection() {
-  const list = DEMOS.slice(0, 3);
+export function PortfolioHighlights() {
+  const list = PORTFOLIO_ITEMS.filter((item) => item.featured).slice(0, 3);
   return (
-    <section className="py-20 sm:py-28" aria-labelledby="demos-title">
+    <section className="py-20 sm:py-28" aria-labelledby="live-work-title">
       <div className={wrap}>
-        <SectionHeading eyebrow="دموی زنده" title={<span id="demos-title">پیش از تصمیم، کار را ببینید</span>} description="نمونه‌های واقعی که اجرا شده‌اند؛ باز کنید، کلیک کنید و کیفیت را خودتان بسنجید." />
+        <SectionHeading
+          eyebrow="نمونه‌کارهای آنلاین"
+          title={<span id="live-work-title">محصول را از نزدیک ببینید</span>}
+          description="چند پروژهٔ قابل بازدید از محصولات و وب‌سایت‌هایی که در اکوسیستم کارن سافت ساخته شده‌اند."
+        />
         <Stagger className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {list.map((d) => (
-            <StaggerItem key={d.slug}>
-              <DemoCard demo={d} />
+          {list.map((item) => (
+            <StaggerItem key={item.slug}>
+              <PortfolioCard item={item} />
             </StaggerItem>
           ))}
         </Stagger>
-        <Reveal className="mt-10 text-center">
-          <Button href="/demos/" variant="outline">همه دموها<ArrowLeft className="size-4" aria-hidden="true" /></Button>
+        <Reveal className="mt-10 flex flex-col justify-center gap-3 text-center sm:flex-row">
+          <Button href="/portfolio/" variant="outline">همهٔ نمونه‌کارها<ArrowLeft className="size-4" aria-hidden="true" /></Button>
+          <Button href="/demos/" variant="ghost">دموهای تعاملی<ArrowLeft className="size-4" aria-hidden="true" /></Button>
         </Reveal>
       </div>
     </section>

@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]): string {
 const FA_DIGITS = "۰۱۲۳۴۵۶۷۸۹";
 
 export function toPersianDigits(value: string | number): string {
-  return String(value).replace(/\d/g, (d) => FA_DIGITS[Number(d)]);
+  return String(value).replace(/\d/g, (d) => FA_DIGITS[Number(d)] ?? d);
 }
 
 /** ساخت URL مطلق با اسلش پایانی (هم‌سو با trailingSlash: true) */

@@ -1,11 +1,12 @@
 import type { PrintCategory, PrintProduct, PrintWork } from "@/lib/types";
+import { siteConfig } from "@/lib/siteConfig";
 
 /** داده‌های مهاجرت‌داده‌شده از legacy/print.html (کارن چاپ — زیرمجموعه کارن سافت) */
 
 export const PRINT_CONTACT = {
   phone: "۰۹۱۹۲۸۶۵۰۰۳",
   tel: "+989192865003",
-  whatsapp: "https://wa.me/989192865003",
+  whatsapp: siteConfig.socials.whatsapp,
   manager: "داود زلفعلیان",
   address: "قزوین، شهرصنعتی البرز - الوند، میدان لاله به چهارراه بسیج، روبه‌روی خیابان آزادی",
   email: "info@karen-soft.ir",

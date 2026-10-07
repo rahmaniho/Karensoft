@@ -49,7 +49,9 @@ export const FOOTER_GROUPS: { title: string; links: NavItem[] }[] = [
   },
 ];
 
-export const SOCIAL_LINKS: { label: string; href: string; icon: "Send" | "Instagram" | "Youtube" | "Linkedin" | "Twitter" }[] = [
+export const SOCIAL_LINKS: { label: string; href: string; icon: "Send" | "Instagram" | "Youtube" | "Linkedin" | "Twitter" | "MessageCircle" | "Globe" }[] = [
+  { label: "روبیکا", href: siteConfig.socials.rubika, icon: "Globe" },
+  { label: "واتساپ", href: siteConfig.socials.whatsapp, icon: "MessageCircle" },
   { label: "تلگرام", href: siteConfig.socials.telegram, icon: "Send" },
   { label: "اینستاگرام", href: siteConfig.socials.instagram, icon: "Instagram" },
   { label: "یوتیوب", href: siteConfig.socials.youtube, icon: "Youtube" },

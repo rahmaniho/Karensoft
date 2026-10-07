@@ -39,8 +39,9 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
         'a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])',
       );
       if (focusables.length === 0) return;
-      const first = focusables[0];
-      const last = focusables[focusables.length - 1];
+      const first = focusables.item(0);
+      const last = focusables.item(focusables.length - 1);
+      if (!first || !last) return;
       if (e.shiftKey && document.activeElement === first) {
         e.preventDefault();
         last.focus();

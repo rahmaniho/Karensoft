@@ -8,7 +8,7 @@ import { Icon } from "@/components/ui/Icon";
 import { Img } from "@/components/ui/Img";
 import { Modal } from "@/components/ui/Modal";
 import { Button } from "@/components/ui/Button";
-import { FormspreeForm, type FormFieldConfig } from "@/components/shared/FormspreeForm";
+import { ContactForm, type FormFieldConfig } from "@/components/shared/ContactForm";
 import { Stagger, StaggerItem } from "@/components/shared/Reveal";
 
 const CATEGORY_ICON: Record<string, string> = {
@@ -39,12 +39,13 @@ interface QuoteTarget {
 
 /** کاتالوگ خدمات چاپ با فیلتر دسته و مودال درخواست قیمت (Formspree) */
 export function PrintCatalog() {
-  const [active, setActive] = useState<string>(PRINT_CATEGORIES[0].id);
+  const [active, setActive] = useState<string>(() => PRINT_CATEGORIES[0]?.id ?? "");
   const [target, setTarget] = useState<QuoteTarget | null>(null);
   const close = useCallback(() => setTarget(null), []);
 
   const category = PRINT_CATEGORIES.find((c) => c.id === active) ?? PRINT_CATEGORIES[0];
-  const products = useMemo(() => PRINT_PRODUCTS.filter((p) => p.category === category.id), [category.id]);
+  const products = useMemo(() => (category ? PRINT_PRODUCTS.filter((p) => p.category === category.id) : []), [category]);
+  if (!category) return null;
 
   return (
     <div>
@@ -139,7 +140,7 @@ export function PrintCatalog() {
                 ))}
               </ul>
             ) : null}
-            <FormspreeForm
+            <ContactForm
               formId="print-quote"
               className="mt-6"
               fields={QUOTE_FIELDS}

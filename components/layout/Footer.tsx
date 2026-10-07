@@ -24,7 +24,7 @@ export function Footer() {
             <p className="mt-5 max-w-sm leading-8 text-slate-300">
               شریک فناوری کسب‌وکارهای ایرانی از سال {toPersianDigits(siteConfig.founded.jalali)}؛ نرم‌افزار حقوقی، نرم‌افزار رایگان مدیریت تاکسی تلفنی، چاپ و توسعه وب.
             </p>
-            <ul className="mt-6 flex gap-2.5" aria-label="شبکه‌های اجتماعی">
+            <ul className="mt-6 flex flex-wrap gap-2.5" aria-label="شبکه‌های اجتماعی">
               {SOCIAL_LINKS.map((s) => (
                 <li key={s.label}>
                   <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`${s.label} کارن سافت`} className="inline-flex size-11 items-center justify-center rounded-xl border border-white/12 bg-white/5 text-slate-300 transition-all hover:-translate-y-0.5 hover:border-electric-400/50 hover:bg-electric-600/20 hover:text-white">

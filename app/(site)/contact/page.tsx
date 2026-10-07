@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
+import { Clock, Globe, Instagram, Mail, MapPin, MessageCircle, Phone, Send, ShieldCheck } from "lucide-react";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/siteConfig";
 import { organizationLd } from "@/lib/schema";
-import { FormspreeForm, type FormFieldConfig } from "@/components/shared/FormspreeForm";
+import { ContactForm, type FormFieldConfig } from "@/components/shared/ContactForm";
 import { PageHero } from "@/components/shared/PageHero";
 import { Reveal } from "@/components/shared/Reveal";
 import { Card } from "@/components/ui/Card";
@@ -25,7 +25,10 @@ export default function ContactPage() {
   const info = [
     { Icon: Phone, label: "تلفن", value: siteConfig.phoneDisplay, href: `tel:${siteConfig.phone}` },
     { Icon: Mail, label: "ایمیل", value: siteConfig.email, href: `mailto:${siteConfig.email}`, ltr: true },
-    { Icon: MessageCircle, label: "تلگرام", value: "@KarenSoftOfficial", href: siteConfig.socials.telegram, ltr: true },
+    { Icon: MessageCircle, label: "واتساپ", value: "@karensoft.ir", href: siteConfig.socials.whatsapp, ltr: true },
+    { Icon: Send, label: "تلگرام", value: "@KarenSoft_dev", href: siteConfig.socials.telegram, ltr: true },
+    { Icon: Globe, label: "روبیکا", value: "@KarenSoft", href: siteConfig.socials.rubika, ltr: true },
+    { Icon: Instagram, label: "اینستاگرام", value: "@Karen_soft.ir", href: siteConfig.socials.instagram, ltr: true },
     { Icon: MapPin, label: "نشانی", value: siteConfig.address },
   ];
   return (
@@ -38,7 +41,7 @@ export default function ContactPage() {
           <Card className="p-6 sm:p-9">
             <h2 className="text-2xl font-extrabold text-white">ارسال پیام</h2>
             <p className="mb-7 mt-2 text-slate-300">فرم زیر را پر کنید؛ در سریع‌ترین زمان پاسخ می‌دهیم.</p>
-            <FormspreeForm
+            <ContactForm
               formId="contact"
               fields={FIELDS}
               subject="پیام جدید از فرم تماس سایت کارن سافت"
