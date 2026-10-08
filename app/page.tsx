@@ -1,58 +1,45 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/sections/Hero";
-import { StatsSection } from "@/components/sections/StatsSection";
-import { ProductsBento } from "@/components/sections/ProductsBento";
-import { ServicesOutline } from "@/components/sections/ServicesOutline";
-import { KarenChapSection } from "@/components/sections/KarenChapSection";
-import { FounderSpotlight } from "@/components/sections/FounderSpotlight";
-import { PortfolioGrid } from "@/components/sections/PortfolioGrid";
-import { BlogSection, HomeFaq, IndustriesTeaser, ProcessSection, TaxiBanner } from "@/components/sections/HomeSections";
-import { CTASection } from "@/components/shared/CTASection";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { buildMetadata } from "@/lib/seo";
-import { siteConfig } from "@/lib/siteConfig";
-import { collectionLd } from "@/lib/schema";
-import { JsonLd } from "@/components/ui/JsonLd";
+import Link from "next/link";
+import { ArrowLeft, BadgeCheck, Boxes, BrainCircuit, Check, Cloud, Code2, Database, Eye, Gauge, LockKeyhole, Play, RadioTower, Sparkles } from "lucide-react";
 
-export const metadata: Metadata = {
-  ...buildMetadata({ title: siteConfig.title, description: siteConfig.description, path: "/" }),
-  title: { absolute: siteConfig.title },
-};
+export const metadata: Metadata = { title: "کارن سافت | بازآفرینی فناوری", description: "راهکارهای نرم‌افزاری، ابری، امنیت و هوش مصنوعی کارن سافت" };
 
-/** بخشی از نمونه‌کارها برای صفحهٔ اصلی */
-function PortfolioHighlights() {
-  return (
-    <section className="py-20 sm:py-28" aria-labelledby="live-work-title">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          align="start"
-          eyebrow="PORTFOLIO / نمونه‌کارها"
-          title={<span id="live-work-title">محصول را از نزدیک ببینید</span>}
-          description="وب‌سایت‌ها و نرم‌افزارهایی که آنلاین‌اند؛ روی هر کارت بزنید تا جزئیات پروژه، نقش ما و لینک نسخهٔ زنده را ببینید."
-        />
-        <PortfolioGrid limit={5} withFilters={false} className="mt-12" />
-      </div>
-    </section>
-  );
-}
+const services = [
+  { icon: Code2, title: "توسعه نرم‌افزار", desc: "نرم‌افزارهای سریع، مقیاس‌پذیر و قابل اعتماد برای تحول دیجیتال کسب‌وکار شما.", items: ["وب و اپلیکیشن موبایل", "فروشگاه و درگاه پرداخت", "داشبوردهای هوش تجاری"], color: "#22d3a7" },
+  { icon: Database, title: "خدمات پایگاه داده", desc: "طراحی و بهینه‌سازی دیتابیس با تمرکز بر عملکرد، امنیت و کاهش هزینه‌ها.", items: ["مانیتورینگ و بهینه‌سازی", "پشتیبان‌گیری و بازیابی", "مهاجرت و به‌روزرسانی"], color: "#45aaf2" },
+  { icon: Cloud, title: "راهکارهای ابری", desc: "زیرساخت ابری منعطف و پایدار؛ آماده برای رشد بدون محدودیت کسب‌وکار شما.", items: ["AWS، Azure و Google Cloud", "Docker و Kubernetes", "بازیابی بحران و مجازی‌سازی"], color: "#a985ff" },
+  { icon: LockKeyhole, title: "امنیت سایبری", desc: "حفاظت هوشمند از دارایی‌های دیجیتال و شناسایی تهدیدها پیش از وقوع آسیب.", items: ["ارزیابی و تست امنیت", "مانیتورینگ تهدیدها", "امنیت ایمیل و وب"], color: "#ffaf63" },
+  { icon: Eye, title: "بینایی ماشین و هوش مصنوعی", desc: "تبدیل تصویر و داده به تصمیم‌های دقیق، سریع و ارزش‌آفرین.", items: ["پردازش تصویر با OpenCV", "مدل‌های هوش مصنوعی اختصاصی", "اتوماسیون فرایندها"], color: "#f06da8" },
+  { icon: RadioTower, title: "اینترنت اشیا", desc: "اتصال تجهیزات و مدیریت داده‌ها برای ساختن یک کسب‌وکار هوشمند و یکپارچه.", items: ["سامانه‌های کنترل از راه دور", "راهکارهای مبتنی بر MQTT", "ردیابی و پایش آنلاین"], color: "#4ed5da" },
+];
 
 export default function HomePage() {
-  return (
-    <main id="main">
-      <JsonLd data={collectionLd({ name: "نمونه‌کارهای کارن سافت", description: siteConfig.description, path: "/" })} />
-      <Hero />
-      <StatsSection />
-      <TaxiBanner />
-      <ProductsBento />
-      <ServicesOutline />
-      <KarenChapSection />
-      <PortfolioHighlights />
-      <FounderSpotlight />
-      <ProcessSection />
-      <IndustriesTeaser />
-      <BlogSection />
-      <HomeFaq />
-      <CTASection />
-    </main>
-  );
+  return <main id="main" className="bg-[#f7fafb] text-[#122c36]">
+    <section className="relative min-h-[760px] overflow-hidden bg-[#071b24] pt-20 text-white">
+      <video autoPlay muted loop playsInline className="absolute inset-0 size-full object-cover opacity-20" poster="/images/cover.webp"><source src="/images/video/hero-background.mp4" type="video/mp4" /></video>
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,27,36,.98)_15%,rgba(7,27,36,.75)_60%,rgba(7,27,36,.88))]" />
+      <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:64px_64px]" />
+      <div className="relative mx-auto grid max-w-[1400px] items-center gap-12 px-5 py-24 lg:grid-cols-[1.05fr_.95fr] lg:px-10 lg:py-32">
+        <div>
+          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#43d9b1]/30 bg-[#43d9b1]/10 px-4 py-2 text-sm text-[#7ce5c8]"><Sparkles className="size-4" />راهکارهای هوشمند برای آینده کسب‌وکار</p>
+          <h1 className="max-w-3xl text-4xl font-black leading-[1.45] sm:text-6xl lg:text-7xl">ما فناوری را<br/><span className="bg-gradient-to-l from-[#51dfb9] to-[#45aaf2] bg-clip-text text-transparent">بازآفرینی می‌کنیم.</span></h1>
+          <p className="mt-7 max-w-2xl text-lg leading-9 text-white/65">با راهکارهای مدرن کارن سافت، فرایندهای کسب‌وکارتان را بهینه کنید، بهره‌وری را افزایش دهید و برای رشد پایدار آماده شوید.</p>
+          <div className="mt-9 flex flex-wrap gap-4"><Link href="/contact/" className="flex items-center gap-2 rounded-full bg-[#29cc9d] px-7 py-4 font-bold text-[#06241d] shadow-[0_15px_40px_-15px_#29cc9d]">مشاوره رایگان <ArrowLeft className="size-5" /></Link><Link href="#services" className="flex items-center gap-3 rounded-full border border-white/20 px-7 py-4 font-bold text-white transition hover:bg-white/10"><Play className="size-4 fill-current" />مشاهده خدمات</Link></div>
+          <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/55"><span className="flex items-center gap-2"><BadgeCheck className="size-5 text-[#43d9b1]"/>راهکار اختصاصی</span><span className="flex items-center gap-2"><Gauge className="size-5 text-[#43d9b1]"/>عملکرد سریع</span><span className="flex items-center gap-2"><LockKeyhole className="size-5 text-[#43d9b1]"/>امن و پایدار</span></div>
+        </div>
+        <div className="relative hidden h-[470px] lg:block"><div className="absolute inset-8 rounded-[3rem] border border-[#42d9b0]/25 bg-white/[.04] backdrop-blur-sm"/><div className="absolute left-8 top-10 rounded-2xl border border-white/10 bg-[#0d2b36]/90 p-5 shadow-2xl"><BrainCircuit className="size-10 text-[#4cdbb5]"/><b className="mt-3 block">هوش مصنوعی</b><small className="text-white/45">تصمیم‌گیری هوشمند</small></div><div className="absolute bottom-10 right-2 rounded-2xl border border-white/10 bg-[#0d2b36]/90 p-5 shadow-2xl"><Cloud className="size-10 text-[#52aef0]"/><b className="mt-3 block">زیرساخت ابری</b><small className="text-white/45">مقیاس‌پذیر و پایدار</small></div><div className="absolute inset-0 m-auto grid size-52 place-items-center rounded-full border border-[#42d9b0]/20 bg-[#0c2c36]/80 shadow-[0_0_90px_#1f987766]"><div className="grid size-28 place-items-center rounded-3xl bg-gradient-to-br from-[#27d1a0] to-[#1989cf] text-6xl font-black">K</div></div></div>
+      </div>
+    </section>
+
+    <section className="border-b border-[#dce8ea] bg-white"><div className="mx-auto grid max-w-[1200px] grid-cols-2 divide-x divide-x-reverse divide-[#e3ecee] px-5 md:grid-cols-4">{[["۱۰+","سال تجربه"],["۱۲۰+","پروژه موفق"],["۹۸٪","رضایت مشتری"],["۲۴/۷","پشتیبانی"]].map(([v,l])=><div key={l} className="py-8 text-center"><b className="text-3xl text-[#0bb386]">{v}</b><p className="mt-1 text-sm text-[#6c8087]">{l}</p></div>)}</div></section>
+
+    <section id="services" className="mx-auto max-w-[1400px] px-5 py-24 lg:px-10 lg:py-32">
+      <div className="mx-auto max-w-3xl text-center"><p className="text-sm font-bold text-[#0caf82]">توانمندی‌های ما</p><h2 className="mt-4 text-3xl font-black sm:text-5xl">راهکارهای کامل برای یک کسب‌وکار مدرن</h2><p className="mt-5 leading-8 text-[#70838a]">از ایده تا اجرا و پشتیبانی، تیم کارن سافت کنار شماست تا فناوری به یک مزیت رقابتی واقعی تبدیل شود.</p></div>
+      <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{services.map((s)=>{const Icon=s.icon;return <article key={s.title} className="group relative overflow-hidden rounded-[2rem] border border-[#dce8ea] bg-white p-8 transition duration-300 hover:-translate-y-2 hover:shadow-[0_24px_60px_-25px_rgba(15,70,80,.3)]"><div className="absolute -left-16 -top-16 size-40 rounded-full opacity-10 blur-2xl" style={{background:s.color}}/><div className="grid size-14 place-items-center rounded-2xl" style={{background:`${s.color}18`,color:s.color}}><Icon className="size-7"/></div><h3 className="mt-6 text-xl font-black">{s.title}</h3><p className="mt-3 min-h-20 leading-7 text-[#71848b]">{s.desc}</p><ul className="mt-5 space-y-2.5">{s.items.map(i=><li key={i} className="flex items-center gap-2 text-sm text-[#435d65]"><Check className="size-4" style={{color:s.color}}/>{i}</li>)}</ul><Link href="/services/" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#0b9f79]">اطلاعات بیشتر <ArrowLeft className="size-4 transition group-hover:-translate-x-1"/></Link></article>})}</div>
+    </section>
+
+    <section className="bg-[#071b24] px-5 py-24 text-white lg:px-10"><div className="mx-auto grid max-w-[1300px] items-center gap-14 lg:grid-cols-2"><div><p className="text-sm font-bold text-[#51dfb9]">چرا کارن سافت؟</p><h2 className="mt-4 text-3xl font-black leading-normal sm:text-5xl">فناوری، وقتی ارزشمند است که نتیجه بسازد.</h2><p className="mt-6 leading-9 text-white/60">ما فقط کد نمی‌نویسیم؛ مسئله کسب‌وکار شما را می‌فهمیم و راهکاری می‌سازیم که ساده، قابل توسعه و سودآور باشد.</p><div className="mt-8 grid gap-4 sm:grid-cols-2">{["تحلیل دقیق نیازها","طراحی اختصاصی و منعطف","تحویل مرحله‌ای و شفاف","پشتیبانی واقعی و مستمر"].map(x=><div key={x} className="flex items-center gap-3 rounded-xl bg-white/[.05] p-4"><Check className="size-5 text-[#51dfb9]"/>{x}</div>)}</div></div><div className="grid grid-cols-2 gap-4"><div className="rounded-[2rem] bg-[#10323e] p-8"><Boxes className="size-10 text-[#50dbb7]"/><b className="mt-12 block text-4xl">۱۲۰+</b><p className="text-white/50">محصول و پروژه</p></div><div className="mt-10 rounded-[2rem] bg-gradient-to-br from-[#1fc798] to-[#148ec2] p-8 text-[#05251f]"><BrainCircuit className="size-10"/><b className="mt-12 block text-3xl">فکر تازه</b><p className="opacity-70">برای هر مسئله</p></div></div></div></section>
+
+    <section className="px-5 py-24 lg:px-10"><div className="mx-auto max-w-[1200px] overflow-hidden rounded-[2.5rem] bg-gradient-to-l from-[#15b98b] to-[#168dbc] px-7 py-14 text-center text-white shadow-xl sm:px-14"><h2 className="text-3xl font-black sm:text-5xl">برای تحول دیجیتال آماده‌اید؟</h2><p className="mx-auto mt-5 max-w-2xl text-white/80">ایده‌تان را با ما در میان بگذارید؛ اولین جلسه مشاوره با تیم کارن سافت رایگان است.</p><Link href="/contact/" className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 font-bold text-[#087b61]">شروع گفتگو <ArrowLeft className="size-5"/></Link></div></section>
+  </main>;
 }
