@@ -67,8 +67,8 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             <Breadcrumbs items={[{ name: "وبلاگ", path: "/blog/" }, { name: post.title, path: `/blog/${post.slug}/` }]} />
             <Badge>{post.category}</Badge>
             <h1 className="mt-5 text-3xl font-black leading-[1.6] text-white sm:text-4xl lg:text-[2.6rem]">{post.title}</h1>
-            <p className="mt-5 text-lg leading-9 text-slate-300">{post.excerpt}</p>
-            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-400">
+            <p className="mt-5 text-lg leading-9 text-mist-400">{post.excerpt}</p>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-mist-400">
               <span className="inline-flex items-center gap-2"><User className="size-4" aria-hidden="true" />{post.author}</span>
               <time dateTime={post.date}>{formatJalali(post.date)}</time>
               <span className="inline-flex items-center gap-2"><Clock className="size-4" aria-hidden="true" />{toPersianDigits(post.readingTime)} دقیقه مطالعه</span>
@@ -84,7 +84,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
               <h2 className="text-base font-extrabold text-white">در این مقاله</h2>
               <ol className="mt-3 grid list-decimal gap-x-8 gap-y-1.5 ps-5 text-sm marker:text-electric-400 sm:grid-cols-2">
                 {toc.map((t) => (
-                  <li key={t.id}><a href={`#${t.id}`} className="text-slate-300 transition-colors hover:text-white">{t.text}</a></li>
+                  <li key={t.id}><a href={`#${t.id}`} className="text-mist-400 transition-colors hover:text-white">{t.text}</a></li>
                 ))}
               </ol>
             </nav>
@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
 
           <ul className="mt-12 flex flex-wrap gap-2 border-t border-white/10 pt-6" aria-label="برچسب‌ها">
             {post.tags.map((t) => (
-              <li key={t} className="rounded-full bg-white/6 px-3.5 py-1.5 text-sm text-slate-300">#{t}</li>
+              <li key={t} className="rounded-full bg-white/6 px-3.5 py-1.5 text-sm text-mist-400">#{t}</li>
             ))}
           </ul>
         </div>

@@ -70,7 +70,7 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <div className="absolute inset-0 bg-navy-950/80 backdrop-blur-sm" onClick={onClose} aria-hidden="true" />
+          <div className="absolute inset-0 bg-ink-950/82 backdrop-blur-md" onClick={onClose} aria-hidden="true" />
           <motion.div
             ref={panelRef}
             role="dialog"
@@ -78,12 +78,12 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
             aria-label={title}
             tabIndex={-1}
             data-lenis-prevent
-            initial={{ opacity: 0, y: 40, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.97 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, y: 46, scale: 0.95, filter: "blur(6px)" }}
+            animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: 30, scale: 0.97, filter: "blur(4px)" }}
+            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
             className={cn(
-              "glass-strong relative max-h-[92vh] w-full overflow-y-auto rounded-t-3xl bg-navy-900 p-6 outline-none sm:max-w-2xl sm:rounded-3xl sm:p-8",
+              "glass-strong relative max-h-[92vh] w-full overflow-y-auto rounded-t-3xl bg-ink-900/92 p-6 outline-none sm:max-w-2xl sm:rounded-3xl sm:p-8",
               className,
             )}
           >
@@ -91,7 +91,7 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
               type="button"
               onClick={onClose}
               aria-label="بستن"
-              className="absolute end-4 top-4 inline-flex size-10 items-center justify-center rounded-full bg-white/8 text-slate-200 transition hover:bg-white/15 hover:text-white"
+              className="absolute end-4 top-4 z-10 inline-flex size-10 items-center justify-center rounded-full border border-white/12 bg-ink-950/70 text-mist-100 backdrop-blur-md transition hover:border-electric-400/45 hover:text-white"
             >
               <X className="size-5" aria-hidden="true" />
             </button>

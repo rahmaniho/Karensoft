@@ -40,7 +40,7 @@ export default function ContactPage() {
         <Reveal>
           <Card className="p-6 sm:p-9">
             <h2 className="text-2xl font-extrabold text-white">ارسال پیام</h2>
-            <p className="mb-7 mt-2 text-slate-300">فرم زیر را پر کنید؛ در سریع‌ترین زمان پاسخ می‌دهیم.</p>
+            <p className="mb-7 mt-2 text-mist-400">فرم زیر را پر کنید؛ در سریع‌ترین زمان پاسخ می‌دهیم.</p>
             <ContactForm
               formId="contact"
               fields={FIELDS}
@@ -58,11 +58,11 @@ export default function ContactPage() {
               <ul className="mt-5 space-y-4">
                 {info.map(({ Icon, label, value, href, ltr }) => (
                   <li key={label} className="flex items-start gap-4">
-                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-electric-600/15 text-electric-300">
+                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-electric-500/15 text-electric-300">
                       <Icon className="size-5" aria-hidden="true" />
                     </span>
                     <div>
-                      <p className="text-xs text-slate-400">{label}</p>
+                      <p className="text-xs text-mist-400">{label}</p>
                       {href ? (
                         <a href={href} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="font-bold text-white transition-colors hover:text-electric-300" dir={ltr ? "ltr" : undefined}>{value}</a>
                       ) : (
@@ -80,18 +80,18 @@ export default function ContactPage() {
               <dl className="mt-4 divide-y divide-white/10">
                 {siteConfig.workingHours.map((h) => (
                   <div key={h.days} className="flex justify-between gap-4 py-3 text-sm">
-                    <dt className="text-slate-300">{h.days}</dt>
+                    <dt className="text-mist-400">{h.days}</dt>
                     <dd className="font-bold text-white">{h.hours}</dd>
                   </div>
                 ))}
               </dl>
-              <p className="mt-3 text-sm text-slate-400">پاسخگویی ایمیلی ۲۴ ساعته</p>
+              <p className="mt-3 text-sm text-mist-400">پاسخگویی ایمیلی ۲۴ ساعته</p>
             </Card>
           </Reveal>
           <Reveal delay={0.2}>
-            <Card className="border-electric-400/30 bg-electric-600/10 p-6">
+            <Card className="border-electric-400/30 bg-electric-500/10 p-6">
               <h2 className="flex items-center gap-2 text-lg font-extrabold text-white"><ShieldCheck className="size-5 text-electric-300" aria-hidden="true" />پشتیبانی ویژه</h2>
-              <p className="mt-3 leading-8 text-slate-200">کاربران نرم‌افزارهای کارن سافت می‌توانند درخواست نصب، راه‌اندازی و سفارشی‌سازی را از همین فرم یا از طریق تلفن ثبت کنند.</p>
+              <p className="mt-3 leading-8 text-mist-100">کاربران نرم‌افزارهای کارن سافت می‌توانند درخواست نصب، راه‌اندازی و سفارشی‌سازی را از همین فرم یا از طریق تلفن ثبت کنند.</p>
             </Card>
           </Reveal>
         </div>

@@ -34,7 +34,7 @@ export default function ProductsPage() {
       </section>
       <section className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8" aria-labelledby="soon-title">
         <h2 id="soon-title" className="mb-2 text-2xl font-extrabold text-white">به‌زودی</h2>
-        <p className="mb-8 text-slate-300">این محصولات در حال توسعه‌اند؛ برای اطلاع از انتشار، صفحهٔ هر محصول را ببینید و فرم اطلاع‌رسانی را پر کنید.</p>
+        <p className="mb-8 text-mist-400">این محصولات در حال توسعه‌اند؛ برای اطلاع از انتشار، صفحهٔ هر محصول را ببینید و فرم اطلاع‌رسانی را پر کنید.</p>
         <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {upcoming.map((p) => (
             <StaggerItem key={p.slug}><ProductCard product={p} /></StaggerItem>

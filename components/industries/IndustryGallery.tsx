@@ -22,7 +22,7 @@ function Preview({ industryIndex, device }: { industryIndex: number; device: Dev
   const p = industry.palette;
   const width = DEVICES.find((d) => d.id === device)?.width ?? "100%";
   return (
-    <div className="grid place-items-center overflow-hidden rounded-xl bg-navy-900 p-3" aria-hidden="true">
+    <div className="grid place-items-center overflow-hidden rounded-xl bg-ink-850 p-3" aria-hidden="true">
       <div className="w-full origin-top overflow-hidden rounded-lg border transition-[width] duration-500 ease-out" style={{ width, background: p.bg, borderColor: p.border }}>
         <div className="flex h-7 items-center gap-1.5 border-b px-2.5" style={{ borderColor: p.border, background: p.surface }}>
           <span className="size-1.5 rounded-full bg-rose-400" />
@@ -75,7 +75,7 @@ export function IndustryGallery() {
               type="button"
               onClick={() => setDevice(id)}
               aria-pressed={device === id}
-              className={cn("inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-bold transition-colors", device === id ? "bg-electric-600 text-white" : "text-slate-300 hover:text-white")}
+              className={cn("inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-bold transition-colors", device === id ? "bg-electric-500 text-white" : "text-mist-400 hover:text-white")}
             >
               <Icon className="size-4" aria-hidden="true" />
               {label}
@@ -84,7 +84,7 @@ export function IndustryGallery() {
         </div>
       </div>
 
-      <p aria-live="polite" className="mb-5 text-sm text-slate-400">
+      <p aria-live="polite" className="mb-5 text-sm text-mist-400">
         {toPersianDigits(visible.length)} نمونه طراحی نمایش داده می‌شود.
       </p>
 
@@ -96,10 +96,10 @@ export function IndustryGallery() {
               <div className="mt-4 flex flex-1 flex-col">
                 <span className="text-xs font-extrabold text-electric-300">{industry.categoryLabel}</span>
                 <h3 className="mt-1 text-lg font-extrabold text-white">{industry.name}</h3>
-                <p className="mt-1.5 flex-1 text-sm leading-7 text-slate-300">{industry.aesthetic}</p>
+                <p className="mt-1.5 flex-1 text-sm leading-7 text-mist-400">{industry.aesthetic}</p>
                 <Link
                   href={`/industries/${industry.slug}/`}
-                  className="mt-4 inline-flex h-11 w-full items-center justify-center gap-1.5 rounded-xl bg-electric-600 text-sm font-extrabold text-white transition-colors hover:bg-electric-700"
+                  className="mt-4 inline-flex h-11 w-full items-center justify-center gap-1.5 rounded-xl bg-electric-500 text-sm font-extrabold text-white transition-colors hover:bg-electric-600"
                 >
                   مشاهده نمونه کامل
                   <ArrowLeft className="size-4" aria-hidden="true" />

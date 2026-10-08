@@ -5,7 +5,8 @@ import {
   Smartphone, Sparkles, Stamp, Store, Truck, Twitter, Users, UtensilsCrossed, Wallet, Workflow, Wrench, X, Youtube, Zap, Heart,
   Download, Languages, Headphones, Star, Quote, Search, Image as ImageIcon, Briefcase, Target, Handshake, Lightbulb, Newspaper,
   Cog, Database, CloudOff, FileDown, Route, CircleDollarSign, MonitorSmartphone, Play, Eye, Layout, Tag, Bell, Lock, RefreshCw,
-  Ruler, Shirt, Coffee, Library, type LucideIcon,
+  Ruler, Shirt, Coffee, Library, Music, Mic, Mic2, IceCreamCone, IceCream2, Gift, Terminal, Github, PanelRightClose, PanelRightOpen,
+  Volume2, VolumeX, ChevronLeft, ChevronRight, Layers3, AudioLines, Clapperboard, Camera, Cone, type LucideIcon,
 } from "lucide-react";
 
 const ICONS = {
@@ -15,7 +16,8 @@ const ICONS = {
   Smartphone, Sparkles, Stamp, Store, Truck, Twitter, Users, UtensilsCrossed, Wallet, Workflow, Wrench, X, Youtube, Zap, Heart,
   Download, Languages, Headphones, Star, Quote, Search, ImageIcon, Briefcase, Target, Handshake, Lightbulb, Newspaper,
   Cog, Database, CloudOff, FileDown, Route, CircleDollarSign, MonitorSmartphone, Play, Eye, Layout, Tag, Bell, Lock, RefreshCw,
-  Ruler, Shirt, Coffee, Library,
+  Ruler, Shirt, Coffee, Library, Music, Mic, Mic2, IceCreamCone, IceCream2, Gift, Terminal, Github, PanelRightClose, PanelRightOpen,
+  Volume2, VolumeX, ChevronLeft, ChevronRight, Layers3, AudioLines, Clapperboard, Camera, Cone,
 } satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof ICONS;

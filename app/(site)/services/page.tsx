@@ -24,12 +24,12 @@ export default function ServicesPage() {
           {SERVICES.map((s) => (
             <StaggerItem key={s.slug}>
               <Card interactive className="h-full p-8">
-                <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-electric-600/15 text-electric-300 ring-1 ring-inset ring-electric-400/25"><Icon name={s.icon} className="size-7" /></span>
+                <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-electric-500/15 text-electric-300 ring-1 ring-inset ring-electric-400/25"><Icon name={s.icon} className="size-7" /></span>
                 <h2 className="mt-5 text-2xl font-extrabold text-white">{s.title}</h2>
-                <p className="mt-3 leading-8 text-slate-300">{s.desc}</p>
+                <p className="mt-3 leading-8 text-mist-400">{s.desc}</p>
                 <ul className="mt-5 grid gap-2 sm:grid-cols-2">
                   {s.bullets.map((b) => (
-                    <li key={b} className="flex items-center gap-2 text-sm text-slate-200"><Icon name="Check" className="size-4 shrink-0 text-electric-400" />{b}</li>
+                    <li key={b} className="flex items-center gap-2 text-sm text-mist-100"><Icon name="Check" className="size-4 shrink-0 text-electric-400" />{b}</li>
                   ))}
                 </ul>
                 {s.href ? (
@@ -50,7 +50,7 @@ export default function ServicesPage() {
               <div className="glass h-full rounded-2xl p-6">
                 <span className="text-gradient-blue text-5xl font-black">{toPersianDigits(i + 1)}</span>
                 <h3 className="mt-3 text-lg font-extrabold text-white">{s.title}</h3>
-                <p className="mt-2 leading-8 text-slate-300">{s.desc}</p>
+                <p className="mt-2 leading-8 text-mist-400">{s.desc}</p>
               </div>
             </StaggerItem>
           ))}

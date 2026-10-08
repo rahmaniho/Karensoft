@@ -360,7 +360,7 @@ export function IndustrySite({ industry }: { industry: Industry }) {
 
   return (
     <div className="min-h-dvh pt-[4.5rem]" style={shellStyle}>
-      <p className="bg-navy-900 px-4 py-2 text-center text-sm font-semibold text-electric-300" role="note">
+      <p className="bg-ink-850 px-4 py-2 text-center text-sm font-semibold text-electric-300" role="note">
         نمونه طراحی کارن سافت برای صنعت «{industry.name}» — داده‌ها فرضی هستند.
       </p>
       {/* Mini-site header */}

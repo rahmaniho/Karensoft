@@ -21,6 +21,12 @@ export interface PortfolioItem {
   cta?: string;
   statusLabel?: string;
   featured?: boolean;
+  /** سال انتشار یا آخرین به‌روزرسانی پروژه (نمایش در مودال جزئیات) */
+  year?: string;
+  /** نکات برجستهٔ پروژه برای مودال جزئیات */
+  highlights?: string[];
+  /** نقش کارن سافت در پروژه */
+  role?: string;
 }
 
 export const PORTFOLIO_CATEGORY_LABEL: Record<PortfolioCategory | "all", string> = {
@@ -36,6 +42,102 @@ export const PORTFOLIO_CATEGORY_LABEL: Record<PortfolioCategory | "all", string>
  * بتواند هم خود محصول را ببیند و هم منشأ آن را بررسی کند.
  */
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
+  {
+    slug: "ava-music-studio",
+    title: "آوا — آکادمی و استودیو موسیقی",
+    client: "استودیو و آکادمی موسیقی آوا",
+    category: "website",
+    summary:
+      "وب‌سایت تعاملی استودیو و آکادمی موسیقی با پلیر سراسری ۹ قطعهٔ واقعی، دموی A/B میکس و مسترینگ، پیانوی سمپل‌شده، درام‌پد و پیش‌نمایش صوتی ۱۶ ساز آموزشی.",
+    icon: "Music",
+    accent: "#8b5cf6",
+    tags: ["Web Audio", "پلیر سراسری", "Vanilla JS", "RTL"],
+    liveUrl: "https://rahmaniho.github.io/musician/",
+    repoUrl: "https://github.com/rahmaniho/musician",
+    statusLabel: "وب‌سایت آنلاین",
+    year: "۱۴۰۴",
+    role: "طراحی رابط، موتور صوتی و پیاده‌سازی کامل",
+    highlights: [
+      "پلیر سراسری با شکل‌موج واقعی، فیلتر ژانر، فهرست پخش و پشتیبانی Media Session",
+      "دموی A/B میکس و مسترینگ با زنجیرهٔ پردازش زنده (High-pass → EQ → Glue → Limiter)",
+      "پیانوی دو اکتاو با سمپل واقعی و درام‌پد ۸ پدالهٔ قابل نوازش با کیبورد",
+      "پیش‌نمایش صوتی هر ۱۶ ساز آموزشی، بخش هنرمندان، پلن قیمتی و فرم سفارش",
+    ],
+    featured: true,
+  },
+  {
+    slug: "abolfazl-miramoo",
+    title: "لندینگ پیج ابوالفضل میرعمو",
+    client: "مدرس آواز، آهنگساز، خواننده و مجری مراسم",
+    category: "website",
+    summary:
+      "صفحهٔ فرود سینمایی و کاملاً راست‌چین برای معرفی و فروش خدمات آموزش آواز، آهنگسازی و تنظیم، اجرای زنده و مجری‌گری؛ بدون حتی یک وابستگی CDN خارجی.",
+    image: "/images/portfolio/miramoo-cover.jpg",
+    imageAlt: "پیش‌نمایش لندینگ پیج ابوالفضل میرعمو",
+    icon: "Mic",
+    accent: "#f59e0b",
+    tags: ["HTML5 + CSS3", "Canvas", "بدون CDN", "دسترس‌پذیری AA"],
+    liveUrl: "https://rahmaniho.github.io/Abolfazl-miramoo/",
+    repoUrl: "https://github.com/rahmaniho/Abolfazl-miramoo",
+    statusLabel: "وب‌سایت آنلاین",
+    year: "۱۴۰۴",
+    role: "طراحی هویت بصری، انیمیشن‌ها و توسعهٔ فرانت‌اند",
+    highlights: [
+      "صحنهٔ تاریک و نور طلایی؛ روایتی مثل افتتاح یک کنسرت",
+      "دو افکت بوم اختصاصی: صورت فلکی نُت‌ها و موج صوتی زنده",
+      "اسلایدر نظرات با Swiper محلی و فونت/آیکون/تصاویر کاملاً Self-hosted",
+      "ناوبری با کیبورد، aria کامل، کنتراست AA/AAA و احترام به prefers-reduced-motion",
+    ],
+    featured: true,
+  },
+  {
+    slug: "qazvin-tasvir",
+    title: "قزوین تصویر — وب‌سایت شرکتی",
+    client: "شرکت قزوین تصویر (با مسئولیت محدود) · تأسیس ۱۳۷۴",
+    category: "website",
+    summary:
+      "لندینگ پیج نسل جدید شرکتی برای سه حوزهٔ بازرگانی و واردات/صادرات، ترابری و سرویس ایاب‌وذهاب پرسنل و تأمین غذای پرسنل (کیترینگ سازمانی).",
+    image: "/images/portfolio/qazvin-tasvir-cover.jpg",
+    imageAlt: "پیش‌نمایش وب‌سایت شرکت قزوین تصویر",
+    icon: "Building2",
+    accent: "#10b981",
+    tags: ["وب شرکتی", "JSON-LD", "Vanilla JS", "انتشار خودکار"],
+    liveUrl: "https://rahmaniho.github.io/Qazvi_tasvir/",
+    repoUrl: "https://github.com/rahmaniho/Qazvi_tasvir",
+    statusLabel: "وب‌سایت آنلاین",
+    year: "۱۴۰۴",
+    role: "بازطراحی کامل، سئو و استقرار روی GitHub Pages",
+    highlights: [
+      "معرفی دقیق سه حوزهٔ فعالیت با گالری اختصاصی تأمین غذای پرسنل",
+      "اطلاعات رسمی شرکت (شناسه ملی، شماره ثبت، کد اقتصادی) با نشانه‌گذاری JSON-LD",
+      "دسترسی سریع به تماس، واتساپ و نشانی دفتر مرکزی قزوین",
+      "انتشار خودکار با GitHub Actions و بهینه‌سازی تصاویر JPG/WebP",
+    ],
+  },
+  {
+    slug: "icecream-factory",
+    title: "بستنی سنتی زعفرونی",
+    client: "کارگاه خانوادگی تولید بستنی سنتی",
+    category: "website",
+    summary:
+      "لندینگ پیج گرم و واکنش‌گرا برای کارگاه بستنی سنتی با سیستم سفارش خرده و عمده، تخفیف پلکانی و ارسال خودکار سفارش به واتساپ.",
+    image: "/images/portfolio/icecream-hero.jpg",
+    imageAlt: "پیش‌نمایش لندینگ پیج بستنی سنتی زعفرونی",
+    icon: "IceCreamCone",
+    accent: "#fbbf24",
+    tags: ["Tailwind CSS", "سبد خرید", "سفارش واتساپی", "سئوی محلی"],
+    liveUrl: "https://rahmaniho.github.io/icecream-factory/",
+    repoUrl: "https://github.com/rahmaniho/icecream-factory",
+    statusLabel: "وب‌سایت آنلاین",
+    year: "۱۴۰۴",
+    role: "طراحی محصول، سیستم سفارش‌گیری و توسعه",
+    highlights: [
+      "سبد خرید با حالت خرده/عمده و تخفیف پلکانی ۵٪، ۱۰٪ و ۱۵٪",
+      "ارسال خودکار متن سفارش به واتساپ، بدون نیاز به بک‌اند",
+      "پالت برند کرم و زعفرانی با فونت وزیرمتن و آیکون‌های دست‌ساز SVG",
+      "انیمیشن ملایم هنگام اسکرول و سئوی محلی با JSON-LD",
+    ],
+  },
   {
     slug: "vokalahome",
     title: "خانه وکلا — Vokalahome",

@@ -68,7 +68,7 @@ export default function VokalahomePage() {
                 خانه وکلا
                 <span className="mt-2 block text-[#C9A227]">وب‌سایتی که به اندازهٔ یک وکیل، قابل اعتماد است</span>
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-9 text-slate-200">
+              <p className="mt-6 max-w-xl text-lg leading-9 text-mist-100">
                 وب‌سایت رسمی «خانه وکلا»، کافه و باشگاه تخصصی وکلا در قزوین: سریع، راست‌چین، موبایل‌محور و کاملاً استاتیک، با امتیاز ۱۰۰ در دسترس‌پذیری، بهترین شیوه‌ها و سئو در Lighthouse.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -111,7 +111,7 @@ export default function VokalahomePage() {
               <li key={s.label} className="rounded-2xl border border-[#C9A227]/25 bg-[#0B1F3A] p-6">
                 <span className="mx-auto grid size-24 place-items-center rounded-full border-4 border-emerald-400 text-4xl font-black text-emerald-300" aria-hidden="true">۱۰۰</span>
                 <p className="mt-4 text-lg font-extrabold text-white">{s.label}</p>
-                <p className="text-sm text-slate-400" dir="ltr">{s.sub}: 100</p>
+                <p className="text-sm text-mist-400" dir="ltr">{s.sub}: 100</p>
                 <span className="sr-only">امتیاز ۱۰۰ از ۱۰۰</span>
               </li>
             ))}
@@ -131,7 +131,7 @@ export default function VokalahomePage() {
               <article className="h-full rounded-2xl border border-[#C9A227]/20 bg-gradient-to-b from-white/[0.06] to-transparent p-6 transition-colors hover:border-[#C9A227]/60">
                 <span className="inline-flex size-12 items-center justify-center rounded-xl bg-[#C9A227]/15 text-[#C9A227]"><Icon className="size-6" aria-hidden="true" /></span>
                 <h3 className="mt-4 text-lg font-extrabold text-white">{title}</h3>
-                <p className="mt-2 leading-8 text-slate-300">{desc}</p>
+                <p className="mt-2 leading-8 text-mist-400">{desc}</p>
               </article>
             </StaggerItem>
           ))}
@@ -143,7 +143,7 @@ export default function VokalahomePage() {
         <Reveal className="mx-auto mb-12 max-w-3xl text-center">
           <p className="text-sm font-bold text-[#C9A227]">گالری</p>
           <h2 id="vk-gallery" className="mt-3 text-3xl font-black text-white sm:text-4xl">نگاهی به فضای خانه وکلا</h2>
-          <p className="mt-3 text-slate-300">برای بزرگ‌نمایی روی هر تصویر کلیک کنید.</p>
+          <p className="mt-3 text-mist-400">برای بزرگ‌نمایی روی هر تصویر کلیک کنید.</p>
         </Reveal>
         <VokalaGallery items={GALLERY} />
       </section>
@@ -157,7 +157,7 @@ export default function VokalahomePage() {
               <li key={t} className="rounded-xl border border-[#C9A227]/40 bg-black/20 px-5 py-2.5 font-bold text-[#e6c75a]" dir="ltr">{t}</li>
             ))}
           </ul>
-          <p className="mx-auto mt-6 max-w-2xl leading-8 text-slate-200">وب‌سایتی مثل «خانه وکلا» برای کسب‌وکار شما هم می‌سازیم. با {siteConfig.name} گفتگو کنید.</p>
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-mist-100">وب‌سایتی مثل «خانه وکلا» برای کسب‌وکار شما هم می‌سازیم. با {siteConfig.name} گفتگو کنید.</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a href={EXTERNAL.vokalahomeLive} target="_blank" rel="noopener noreferrer" className="inline-flex h-14 items-center justify-center rounded-xl bg-[#C9A227] px-8 font-extrabold text-[#0B1F3A] transition-all hover:-translate-y-0.5 hover:bg-[#d8b238]">
               مشاهده دموی زنده
