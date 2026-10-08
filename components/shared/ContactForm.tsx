@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useRef, useState, type FocusEvent, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CircleCheck, ExternalLink, Loader2, Mail, Send, TriangleAlert } from "lucide-react";
 import {
@@ -11,6 +11,8 @@ import {
   siteConfig,
 } from "@/lib/siteConfig";
 import { cn } from "@/lib/utils";
+import { useSoundFx } from "@/components/fx/SoundProvider";
+import { ActionButton } from "@/components/ui/ActionButton";
 import { Input, Select, Textarea } from "@/components/ui/Field";
 
 export interface FormFieldConfig {
@@ -101,7 +103,25 @@ export function ContactForm({
 }: ContactFormProps) {
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  /** فیلدهایی که کاربر از آن‌ها خارج شده؛ برای اعتبارسنجی زنده */
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const formRef = useRef<HTMLFormElement>(null);
+  const { play } = useSoundFx();
+
+  /** اعتبارسنجی زنده هنگام خروج از فیلد */
+  function handleBlur<T extends HTMLInputElement | HTMLTextAreaElement>(event: FocusEvent<T>) {
+    const { name, value } = event.currentTarget;
+    const field = fields.find((candidate) => candidate.name === name);
+    if (!field) return;
+    setTouched((current) => ({ ...current, [name]: true }));
+    const error = validate(field, value);
+    setErrors((current) => {
+      const next = { ...current };
+      if (error) next[name] = error;
+      else delete next[name];
+      return next;
+    });
+  }
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -117,6 +137,7 @@ export function ContactForm({
       if (error) nextErrors[field.name] = error;
     }
     setErrors(nextErrors);
+    setTouched(Object.fromEntries(fields.map((field) => [field.name, true])));
     if (Object.keys(nextErrors).length > 0) {
       const firstInvalid = Object.keys(nextErrors)[0];
       if (firstInvalid) form.querySelector<HTMLElement>(`[name="${firstInvalid}"]`)?.focus();
@@ -174,7 +195,9 @@ export function ContactForm({
 
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       setStatus("success");
+      play("success");
       form.reset();
+      setTouched({});
     } catch {
       setStatus("error");
     }
@@ -197,7 +220,7 @@ export function ContactForm({
         <h3 className="mt-5 text-2xl font-extrabold text-white">
           {usedMailClient ? "پیام در برنامهٔ ایمیل آماده شد" : successTitle}
         </h3>
-        <p className="mt-3 leading-8 text-slate-300">
+        <p className="mt-3 leading-8 text-mist-400">
           {usedMailClient
             ? "ارسال نهایی را در برنامهٔ ایمیل خود تأیید کنید. اگر برنامه باز نشد، از ایمیل مستقیم یا شماره تماس پایین صفحه استفاده کنید."
             : successMessage}
@@ -211,7 +234,7 @@ export function ContactForm({
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-6 rounded-xl border border-white/15 px-5 py-2.5 text-sm font-bold text-slate-200 transition hover:bg-white/10"
+          className="mt-6 rounded-xl border border-white/15 px-5 py-2.5 text-sm font-bold text-mist-100 transition hover:bg-white/10"
         >
           ارسال پیام جدید
         </button>
@@ -224,21 +247,25 @@ export function ContactForm({
       <div className="grid gap-5 sm:grid-cols-2">
         {fields.map((field) => {
           const id = `${formId}-${field.name}`;
+          // خطا فقط پس از لمس فیلد یا تلاش برای ارسال نمایش داده می‌شود (اعتبارسنجی زنده)
+          const error = touched[field.name] ? errors[field.name] : undefined;
           const shared = {
             id,
             name: field.name,
             label: field.label,
             required: field.required,
             hint: field.hint,
-            error: errors[field.name],
+            error,
             wrapperClassName: field.full || field.type === "textarea" ? "sm:col-span-2" : undefined,
           };
+          const { wrapperClassName: _wc, ...selectProps } = shared;
+          void _wc;
           if (field.type === "textarea") {
-            return <Textarea key={field.name} {...shared} placeholder={field.placeholder} rows={field.rows} maxLength={10000} />;
+            return <Textarea key={field.name} {...shared} onBlur={handleBlur} placeholder={field.placeholder} rows={field.rows} maxLength={10000} />;
           }
           if (field.type === "select") {
             return (
-              <Select key={field.name} {...shared} defaultValue="">
+              <Select key={field.name} {...selectProps} wrapperClassName={shared.wrapperClassName} defaultValue="">
                 <option value="" disabled>انتخاب کنید…</option>
                 {field.options?.map((option) => <option key={option} value={option}>{option}</option>)}
               </Select>
@@ -248,6 +275,7 @@ export function ContactForm({
             <Input
               key={field.name}
               {...shared}
+              onBlur={handleBlur}
               type={field.type ?? "text"}
               placeholder={field.placeholder}
               min={field.min}
@@ -270,15 +298,11 @@ export function ContactForm({
         </label>
       </div>
 
-      <button
-        type="submit"
-        disabled={status === "sending"}
-        className="inline-flex h-14 w-full items-center justify-center gap-2 rounded-xl bg-electric-600 px-8 text-base font-bold text-white shadow-[0_8px_28px_-8px_rgb(37_99_235/0.9)] ring-1 ring-inset ring-white/15 transition-all hover:-translate-y-0.5 hover:bg-electric-700 active:scale-[0.98] disabled:opacity-70 sm:w-auto"
-      >
+      <ActionButton type="submit" size="lg" magnetic disabled={status === "sending"} className="w-full sm:w-auto">
         {status === "sending" ? <Loader2 className="size-5 animate-spin" aria-hidden="true" /> : <Send className="size-5 -scale-x-100" aria-hidden="true" />}
         {status === "sending" ? "در حال ارسال…" : submitLabel}
-      </button>
-      {note ? <p className="text-xs leading-6 text-slate-400">{note}</p> : null}
+      </ActionButton>
+      {note ? <p className="text-xs leading-6 text-mist-400">{note}</p> : null}
       {!isContactApiConfigured && !isFormspreeConfigured ? (
         <p role="note" className="rounded-xl border border-amber-300/20 bg-amber-400/5 px-4 py-3 text-xs leading-6 text-amber-100/90">
           فرم آنلاین هنوز به سرویس ارسال متصل نشده است؛ با ارسال، متن پیام در برنامهٔ ایمیل شما آماده می‌شود و باید آن را تأیید کنید.

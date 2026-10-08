@@ -4,20 +4,24 @@ export interface NavItem {
   label: string;
   href: string;
   badge?: string;
+  /** نام آیکون lucide برای سایدبار و منوی موبایل */
+  icon?: string;
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "محصولات", href: "/products/" },
-  { label: "خدمات", href: "/services/" },
-  { label: "دموی زنده", href: "/demos/" },
-  { label: "صنایع", href: "/industries/" },
-  { label: "نمونه‌کارها", href: "/portfolio/" },
-  { label: "وبلاگ", href: "/blog/" },
-  { label: "درباره ما", href: "/about/" },
+  { label: "خانه", href: "/", icon: "Home" },
+  { label: "محصولات", href: "/products/", icon: "Boxes" },
+  { label: "خدمات", href: "/services/", icon: "Workflow" },
+  { label: "کارن چاپ", href: "/services/printing/", icon: "Stamp" },
+  { label: "دموی زنده", href: "/demos/", icon: "Play" },
+  { label: "صنایع", href: "/industries/", icon: "Factory" },
+  { label: "نمونه‌کارها", href: "/portfolio/", icon: "Layout" },
+  { label: "وبلاگ", href: "/blog/", icon: "Newspaper" },
+  { label: "درباره ما", href: "/about/", icon: "Users" },
 ];
 
-export const NAV_CTA: NavItem = { label: "تماس با ما", href: "/contact/" };
-export const NAV_FREE: NavItem = { label: "تاکسی رایگان", href: "/products/taxi-software/", badge: "رایگان" };
+export const NAV_CTA: NavItem = { label: "تماس با ما", href: "/contact/", icon: "Phone" };
+export const NAV_FREE: NavItem = { label: "تاکسی رایگان", href: "/products/taxi-software/", badge: "رایگان", icon: "Car" };
 
 export const FOOTER_GROUPS: { title: string; links: NavItem[] }[] = [
   {
@@ -59,11 +63,22 @@ export const SOCIAL_LINKS: { label: string; href: string; icon: "Send" | "Instag
   { label: "توییتر", href: siteConfig.socials.twitter, icon: "Twitter" },
 ];
 
-export const HOME_STATS: { value: string; label: string }[] = [
-  { value: "۱۳۷۸", label: "آغاز فعالیت" },
-  { value: "۲۷+", label: "سال تجربه" },
-  { value: "۴", label: "حوزه تخصصی" },
-  { value: "۱۰۰٪", label: "رایگان؛ نرم‌افزار تاکسی" },
+/** آمار صفحهٔ اصلی؛ با انیمیشن شمارش افزایشی (Count-up) نمایش داده می‌شود */
+export interface StatItem {
+  /** مقدار عددی برای انیمیشن شمارش */
+  value: number;
+  /** پسوند فارسی مثل «+» یا «٪» */
+  suffix?: string;
+  label: string;
+  /** رنگ تاکیدی عدد */
+  accent?: string;
+}
+
+export const HOME_STATS: StatItem[] = [
+  { value: 1404, label: "سال تأسیس کارن سافت", accent: "#00f0ff" },
+  { value: 17, suffix: "+", label: "نمونه‌کار و محصول منتشرشده", accent: "#8b5cf6" },
+  { value: 4, label: "حوزهٔ تخصصی فعالیت", accent: "#10b981" },
+  { value: 100, suffix: "٪", label: "رایگان؛ نرم‌افزار تاکسی تلفنی", accent: "#fbbf24" },
 ];
 
 export interface ServiceItem {
@@ -141,3 +156,60 @@ export const HOME_FAQS: { q: string; a: string }[] = [
 ];
 
 export const TECH_BADGES: string[] = ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "PWA"];
+
+/** نقطه‌های عطف کارن سافت؛ از تجربهٔ پیش از تأسیس تا امروز (تایم‌لاین صفحهٔ درباره ما) */
+export interface Milestone {
+  year: string;
+  title: string;
+  desc: string;
+  icon: string;
+  /** رویداد جاری/مهم با هایلایت ویژه نمایش داده می‌شود */
+  highlight?: boolean;
+}
+
+export const MILESTONES: Milestone[] = [
+  {
+    year: "۱۳۹۰",
+    title: "آغاز مسیر برنامه‌نویسی",
+    desc: "حسین رحمانی نوشتن کد را از قزوین شروع می‌کند؛ سال‌ها کار عملی، تست و ساخت ابزارهای کوچک برای کسب‌وکارهای اطراف.",
+    icon: "Code2",
+  },
+  {
+    year: "۱۳۹۶",
+    title: "رونمایی سیستم «کارن» در مشهد",
+    desc: "نسخهٔ نخست نرم‌افزار مدیریت تاکسی تلفنی برای آژانس‌های مشهد رونمایی می‌شود؛ اولین محصولی که در شرایط واقعی و پرفشارِ یک صنف آزموده شد.",
+    icon: "Car",
+  },
+  {
+    year: "۱۴۰۰",
+    title: "کارن چاپ و خدمات فیزیکی",
+    desc: "چاپ افست و دیجیتال، مهر، صحافی و هدایای تبلیغاتی به خانواده خدمات اضافه می‌شود تا برند کارن سافت فقط نرم‌افزار نباشد.",
+    icon: "Printer",
+  },
+  {
+    year: "۱۴۰۲",
+    title: "نرم‌افزار مدیریت دفتر وکالت",
+    desc: "از دل نیاز واقعی دفاتر وکالت، محصولی آفلاین‌محور با پرونده، موکل، قرارداد، تقویم شمسی و امور مالی ساخته می‌شود.",
+    icon: "Scale",
+  },
+  {
+    year: "۱۴۰۳",
+    title: "نسخهٔ رایگان تاکسی تلفنی",
+    desc: "نرم‌افزار مدیریت تاکسی تلفنی به‌عنوان مسئولیت اجتماعی رایگان منتشر می‌شود؛ بدون اشتراک و بدون محدودیت نسخه.",
+    icon: "Gift",
+  },
+  {
+    year: "۱۴۰۴",
+    title: "تأسیس رسمی کارن سافت",
+    desc: "کارن سافت با مدیریت و بنیان‌گذاری حسین رحمانی به‌صورت رسمی تأسیس می‌شود تا محصولات و خدمات پراکنده زیر یک برند، یک تیم و یک استاندارد کیفیت قرار بگیرند.",
+    icon: "Rocket",
+    highlight: true,
+  },
+  {
+    year: "۱۴۰۵",
+    title: "امروز؛ وب‌سایت‌ها و داشبوردهای زنده",
+    desc: "طراحی و توسعهٔ وب‌سایت‌های تخصصی، داشبوردهای صنعتی و نمونه‌کارهای آنلاین؛ همه روی همین زیرساخت و با همین وسواس فنی.",
+    icon: "Globe",
+    highlight: true,
+  },
+];

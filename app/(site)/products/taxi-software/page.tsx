@@ -61,14 +61,14 @@ export default function TaxiSoftwarePage() {
             <Reveal>
               <Badge tone="green">۱۰۰٪ رایگان</Badge>
               <h1 className="text-gradient mt-5 text-4xl font-black leading-[1.55] sm:text-5xl">{TITLE}</h1>
-              <p className="mt-6 max-w-2xl text-lg leading-9 text-slate-300">
+              <p className="mt-6 max-w-2xl text-lg leading-9 text-mist-400">
                 آژانس‌های تاکسی تلفنی برای مدیریت راننده، سفر و حساب‌وکتاب نباید هزینهٔ سنگین نرم‌افزار بدهند. کارن سافت این نرم‌افزار را رایگان در اختیار همهٔ آژانس‌ها قرار داده است.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button href="#download" size="lg"><Download className="size-5" aria-hidden="true" />دریافت و درخواست نسخه</Button>
                 <Button href="/taxi-app/" variant="secondary" size="lg" external>اجرای نسخه آنلاین<ArrowLeft className="size-5" aria-hidden="true" /></Button>
               </div>
-              <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-300">
+              <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-mist-400">
                 <li className="flex items-center gap-2"><CloudOff className="size-4 text-emerald-300" aria-hidden="true" />بدون نیاز به سرور</li>
                 <li className="flex items-center gap-2"><Lock className="size-4 text-emerald-300" aria-hidden="true" />داده‌ها روی دستگاه شما می‌ماند</li>
                 <li className="flex items-center gap-2"><Users className="size-4 text-emerald-300" aria-hidden="true" />کاملاً فارسی و راست‌چین</li>
@@ -91,7 +91,7 @@ export default function TaxiSoftwarePage() {
               <Card interactive className="h-full p-7">
                 <span className="inline-flex size-14 items-center justify-center rounded-2xl bg-amber-400/15 text-amber-300 ring-1 ring-inset ring-amber-300/25"><Icon className="size-7" aria-hidden="true" /></span>
                 <h3 className="mt-5 text-xl font-extrabold text-white">{title}</h3>
-                <p className="mt-2 leading-8 text-slate-300">{desc}</p>
+                <p className="mt-2 leading-8 text-mist-400">{desc}</p>
               </Card>
             </StaggerItem>
           ))}
@@ -103,7 +103,7 @@ export default function TaxiSoftwarePage() {
           <div className="bg-aurora absolute inset-0 -z-10" aria-hidden="true" />
           <HeartHandshakeBadge />
           <h2 id="impact-title" className="mt-4 text-3xl font-black leading-[1.6] text-white">چرا رایگان؟ مسئولیت اجتماعی کارن سافت</h2>
-          <div className="mt-5 grid gap-8 text-lg leading-9 text-slate-200 lg:grid-cols-2">
+          <div className="mt-5 grid gap-8 text-lg leading-9 text-mist-100 lg:grid-cols-2">
             <p>بسیاری از آژانس‌های کوچک و رانندگان، توان پرداخت هزینهٔ نرم‌افزارهای مدیریتی را ندارند و هنوز با دفتر و کاغذ کار می‌کنند. ما می‌خواهیم دیجیتال‌شدن این صنف، یک امتیاز برای همه باشد نه یک هزینه.</p>
             <p>سیستم «کارن» برای مدیریت تاکسی تلفنی در سال ۱۳۹۶ در مشهد رونمایی شد؛ امروز نسخهٔ رایگان و به‌روز آن برای همهٔ آژانس‌های کشور در دسترس است. اگر آژانس شماست، همین حالا درخواست دهید.</p>
           </div>
@@ -114,7 +114,7 @@ export default function TaxiSoftwarePage() {
         <Reveal>
           <Card className="p-6 sm:p-9">
             <h2 id="download-title" className="text-2xl font-extrabold text-white">دریافت یا درخواست نرم‌افزار</h2>
-            <p className="mb-7 mt-2 leading-8 text-slate-300">اطلاعات آژانس را بنویسید تا راهنمای استفاده، آموزش و پشتیبانی را برایتان ارسال کنیم. استفاده از نرم‌افزار هیچ هزینه‌ای ندارد.</p>
+            <p className="mb-7 mt-2 leading-8 text-mist-400">اطلاعات آژانس را بنویسید تا راهنمای استفاده، آموزش و پشتیبانی را برایتان ارسال کنیم. استفاده از نرم‌افزار هیچ هزینه‌ای ندارد.</p>
             <ContactForm
               formId="taxi"
               fields={FIELDS}

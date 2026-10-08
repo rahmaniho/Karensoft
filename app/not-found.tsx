@@ -26,7 +26,7 @@ export default function NotFound() {
       <div className="mx-auto max-w-3xl text-center">
         <p className="text-gradient-blue text-[7rem] font-black leading-none sm:text-[10rem]" aria-hidden="true">۴۰۴</p>
         <h1 className="mt-2 text-3xl font-black text-white sm:text-4xl">صفحه‌ای که دنبالش بودید پیدا نشد</h1>
-        <p className="mx-auto mt-4 max-w-xl text-lg leading-9 text-slate-300">
+        <p className="mx-auto mt-4 max-w-xl text-lg leading-9 text-mist-400">
           ممکن است نشانی را اشتباه وارد کرده باشید یا صفحه جابه‌جا شده باشد. از میان میان‌برهای زیر ادامه دهید.
         </p>
         <div className="mt-8 flex justify-center">
@@ -35,7 +35,7 @@ export default function NotFound() {
         <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {SHORTCUTS.map(({ href, label, Icon }) => (
             <li key={href}>
-              <Link href={href} className="glass flex h-full flex-col items-center gap-2 rounded-2xl px-3 py-5 text-sm font-bold text-slate-200 transition-all hover:-translate-y-1 hover:border-electric-400/50 hover:text-white">
+              <Link href={href} className="glass flex h-full flex-col items-center gap-2 rounded-2xl px-3 py-5 text-sm font-bold text-mist-100 transition-all hover:-translate-y-1 hover:border-electric-400/50 hover:text-white">
                 <Icon className="size-6 text-electric-300" aria-hidden="true" />
                 {label}
               </Link>

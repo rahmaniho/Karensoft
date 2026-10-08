@@ -10,7 +10,7 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
     <>
       <JsonLd data={breadcrumbLd(items)} />
       <nav aria-label="مسیر صفحه" className="mb-6">
-        <ol className="flex flex-wrap items-center gap-1.5 text-sm text-slate-400">
+        <ol className="flex flex-wrap items-center gap-1.5 text-sm text-mist-400">
           <li>
             <Link href="/" className="rounded px-1 transition-colors hover:text-white">خانه</Link>
           </li>
@@ -18,9 +18,9 @@ export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
             const last = i === items.length - 1;
             return (
               <li key={item.path} className="flex items-center gap-1.5">
-                <ChevronLeft className="size-3.5 text-slate-500" aria-hidden="true" />
+                <ChevronLeft className="size-3.5 text-mist-500" aria-hidden="true" />
                 {last ? (
-                  <span aria-current="page" className="px-1 font-semibold text-slate-200">{item.name}</span>
+                  <span aria-current="page" className="px-1 font-semibold text-mist-100">{item.name}</span>
                 ) : (
                   <Link href={item.path} className="rounded px-1 transition-colors hover:text-white">{item.name}</Link>
                 )}

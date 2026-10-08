@@ -26,10 +26,10 @@ export function BusinessInfo({ title, lead, address, phone, tel, hours, instagra
       <div className="grid gap-8 lg:grid-cols-2">
         <Reveal>
           <h2 id="biz-title" className="text-3xl font-black text-white">{title}</h2>
-          <p className="mt-4 text-lg leading-9 text-slate-300">{lead}</p>
+          <p className="mt-4 text-lg leading-9 text-mist-400">{lead}</p>
           <ul className="mt-6 space-y-3">
             {facts.map((f) => (
-              <li key={f} className="flex items-start gap-3 text-slate-200"><span className="mt-3 size-1.5 shrink-0 rounded-full bg-cyan-glow" aria-hidden="true" />{f}</li>
+              <li key={f} className="flex items-start gap-3 text-mist-100"><span className="mt-3 size-1.5 shrink-0 rounded-full bg-electric-400" aria-hidden="true" />{f}</li>
             ))}
           </ul>
         </Reveal>
@@ -39,9 +39,9 @@ export function BusinessInfo({ title, lead, address, phone, tel, hours, instagra
             <ul className="space-y-5">
               {rows.map(({ Icon, label, value, href, ltr }) => (
                 <li key={label} className="flex items-start gap-4">
-                  <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-electric-600/15 text-electric-300"><Icon className="size-5" aria-hidden="true" /></span>
+                  <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-electric-500/15 text-electric-300"><Icon className="size-5" aria-hidden="true" /></span>
                   <div>
-                    <p className="text-xs text-slate-400">{label}</p>
+                    <p className="text-xs text-mist-400">{label}</p>
                     {href ? (
                       <a href={href} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} dir={ltr ? "ltr" : undefined} className="font-bold text-white hover:text-electric-300">{value}</a>
                     ) : (

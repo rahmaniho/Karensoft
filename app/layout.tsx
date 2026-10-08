@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Header } from "@/components/layout/Header";
+import { AppShell } from "@/components/layout/AppShell";
 import { Footer } from "@/components/layout/Footer";
-import { SmoothScroll } from "@/components/shared/SmoothScroll";
-import { ScrollProgress } from "@/components/shared/ScrollProgress";
+import { CursorGlow } from "@/components/fx/CursorGlow";
+import { SoundProvider } from "@/components/fx/SoundProvider";
 import { CrispChat } from "@/components/shared/CrispChat";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { organizationLd, websiteLd } from "@/lib/schema";
@@ -15,6 +15,18 @@ const vazirmatn = localFont({
   weight: "100 900",
   display: "swap",
   variable: "--font-vazirmatn",
+});
+
+/** فونت مونو برای قطعه‌کدها، آمار و اعداد (حس نرم‌افزاری) */
+const jetbrainsMono = localFont({
+  src: [
+    { path: "../public/fonts/jetbrains-mono-regular.woff2", weight: "400", style: "normal" },
+    { path: "../public/fonts/jetbrains-mono-medium.woff2", weight: "500", style: "normal" },
+    { path: "../public/fonts/jetbrains-mono-bold.woff2", weight: "700", style: "normal" },
+  ],
+  display: "swap",
+  variable: "--font-jetbrains",
+  fallback: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
 });
 
 export const metadata: Metadata = {
@@ -47,29 +59,33 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050b1a",
+  themeColor: "#0a0a0a",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fa" dir="rtl" className={vazirmatn.variable}>
+    <html lang="fa" dir="rtl" className={`${vazirmatn.variable} ${jetbrainsMono.variable}`}>
       <body>
-        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-xl focus:bg-electric-600 focus:px-5 focus:py-3 focus:font-bold focus:text-white">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:z-[90] focus:rounded-xl focus:bg-electric-400 focus:px-5 focus:py-3 focus:font-bold focus:text-ink-950 focus:start-[calc(var(--ks-sidebar)+1rem)]"
+        >
           پرش به محتوای اصلی
         </a>
         <noscript>
           <style>{`[style*="opacity: 0"]{opacity:1!important;transform:none!important}`}</style>
         </noscript>
         <JsonLd data={[organizationLd(), websiteLd()]} />
-        <SmoothScroll>
-          <ScrollProgress />
-          <Header />
-          {children}
-          <Footer />
+        <SoundProvider>
+          <AppShell>
+            {children}
+            <Footer />
+          </AppShell>
+          <CursorGlow />
           <CrispChat />
-        </SmoothScroll>
+        </SoundProvider>
       </body>
     </html>
   );

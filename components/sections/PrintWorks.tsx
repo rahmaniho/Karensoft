@@ -23,13 +23,13 @@ export function PrintWorks() {
         {visible.map((w) => (
           <StaggerItem key={w.title} lift>
             <figure className="glass group overflow-hidden rounded-2xl">
-              <div className="relative aspect-[4/3] overflow-hidden bg-navy-800">
+              <div className="relative aspect-[4/3] overflow-hidden bg-ink-850">
                 {w.image ? <Img src={w.image} alt={w.alt} className="size-full object-cover transition-transform duration-700 group-hover:scale-105" /> : null}
                 <Badge className="absolute start-4 top-4 backdrop-blur-md">{w.badge}</Badge>
               </div>
               <figcaption className="p-5">
                 <p className="font-extrabold text-white">{w.title}</p>
-                <p className="mt-1 text-sm leading-7 text-slate-300">{w.desc}</p>
+                <p className="mt-1 text-sm leading-7 text-mist-400">{w.desc}</p>
               </figcaption>
             </figure>
           </StaggerItem>

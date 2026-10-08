@@ -15,10 +15,14 @@ export const siteConfig = {
   title: "کارن سافت | راهکارهای نرم‌افزاری",
   tagline: "فناوری پیچیده، رشد ساده.",
   description:
-    "کارن سافت؛ شریک فناوری کسب‌وکارهای ایرانی از سال ۱۳۷۸. نرم‌افزار حقوقی، نرم‌افزار رایگان مدیریت تاکسی تلفنی، ساخت وب‌سایت و بهینه‌سازی کسب‌وکار.",
+    "کارن سافت؛ شریک فناوری کسب‌وکارهای ایرانی، تأسیس ۱۴۰۴ به مدیریت حسین رحمانی. نرم‌افزار حقوقی، نرم‌افزار رایگان مدیریت تاکسی تلفنی، ساخت وب‌سایت و بهینه‌سازی کسب‌وکار.",
   locale: "fa_IR",
-  founded: { jalali: 1378, gregorian: 1999 },
+  /** کارن سافت در سال ۱۴۰۴ به‌صورت رسمی تأسیس شد. */
+  founded: { jalali: 1404, gregorian: 2025 },
   founder: "حسین رحمانی",
+  founderRole: "مدیر و بنیان‌گذار",
+  /** تصویر مدیر و بنیان‌گذار (از مخزن karen-soft) */
+  founderImage: "/images/Hosein-rahmani.jpg",
   phone: "+989152521166",
   phoneDisplay: "۰۹۱۵۲۵۲۱۱۶۶",
   email: "info@karen-soft.ir",
@@ -47,6 +51,15 @@ export const siteConfig = {
   ogImage: "/images/og-image.jpg",
 } as const;
 
+/**
+ * سال شمسی مرجع محتوا؛ در زمان build ثابت می‌ماند تا خروجی استاتیک و هیدریشن
+ * مرورگر هیچ‌وقت با هم اختلاف پیدا نکنند.
+ */
+export const CURRENT_JALALI_YEAR = 1405;
+
+/** سال‌های فعالیت کارن سافت از زمان تأسیس (۱۴۰۴) */
+export const yearsSinceFounding = Math.max(0, CURRENT_JALALI_YEAR - siteConfig.founded.jalali);
+
 export const isFormspreeConfigured = /^[A-Za-z0-9]{6,}$/.test(siteConfig.formspreeId);
 export const FORMSPREE_ENDPOINT = isFormspreeConfigured
   ? `https://formspree.io/f/${siteConfig.formspreeId}`
@@ -57,7 +70,6 @@ export const isCrispConfigured = /^[a-f0-9-]{36}$/i.test(siteConfig.crispWebsite
 
 export const EXTERNAL = {
   vokalahomeLive: "https://rahmaniho.github.io/Vokalahome/",
-  vokalahomeRepo: "https://github.com/rahmaniho/Vokalahome",
 } as const;
 
 /**

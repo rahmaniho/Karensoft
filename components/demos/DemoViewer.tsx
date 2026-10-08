@@ -34,7 +34,7 @@ export function DemoViewer({ src, title, href }: DemoViewerProps) {
               type="button"
               aria-pressed={device === id}
               onClick={() => setDevice(id)}
-              className={cn("inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-bold transition-colors", device === id ? "bg-electric-600 text-white" : "text-slate-300 hover:text-white")}
+              className={cn("inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-bold transition-colors", device === id ? "bg-electric-500 text-white" : "text-mist-400 hover:text-white")}
             >
               <Icon className="size-4" aria-hidden="true" />
               <span className="hidden sm:inline">{label}</span>
@@ -47,18 +47,18 @@ export function DemoViewer({ src, title, href }: DemoViewerProps) {
           <ExternalLink className="size-4" aria-hidden="true" />
         </a>
       </div>
-      <div className="grid place-items-center overflow-hidden rounded-2xl bg-navy-900 p-0 sm:p-3">
+      <div className="grid place-items-center overflow-hidden rounded-2xl bg-ink-850 p-0 sm:p-3">
         <div className="relative h-[70vh] min-h-[28rem] max-w-full overflow-hidden rounded-xl border border-white/10 bg-white transition-[width] duration-500 ease-out" style={{ width }}>
           {loaded ? (
             <iframe src={src} title={title} loading="lazy" className="size-full border-0" referrerPolicy="no-referrer" />
           ) : (
-            <div className="grid size-full place-items-center bg-navy-900 p-6 text-center">
+            <div className="grid size-full place-items-center bg-ink-850 p-6 text-center">
               <div>
                 <p className="mb-5 text-lg font-bold text-white">{title}</p>
-                <button type="button" onClick={() => setLoaded(true)} className="inline-flex h-12 items-center gap-2 rounded-xl bg-electric-600 px-6 font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-electric-700">
+                <button type="button" onClick={() => setLoaded(true)} className="inline-flex h-12 items-center gap-2 rounded-xl bg-electric-500 px-6 font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-electric-600">
                   بارگذاری دموی زنده
                 </button>
-                <p className="mt-3 text-xs text-slate-400">برای صرفه‌جویی در حجم صفحه، دمو پس از کلیک بارگذاری می‌شود.</p>
+                <p className="mt-3 text-xs text-mist-400">برای صرفه‌جویی در حجم صفحه، دمو پس از کلیک بارگذاری می‌شود.</p>
               </div>
             </div>
           )}

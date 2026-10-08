@@ -61,7 +61,7 @@ export function PrintCatalog() {
               aria-selected={isActive}
               aria-controls="print-panel"
               onClick={() => setActive(c.id)}
-              className={cn("inline-flex shrink-0 items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-bold transition-all", isActive ? "border-electric-500 bg-electric-600 text-white shadow-[0_8px_24px_-8px_rgb(37_99_235/0.9)]" : "border-white/12 bg-white/5 text-slate-300 hover:border-white/30 hover:text-white")}
+              className={cn("inline-flex shrink-0 items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-bold transition-all", isActive ? "border-electric-500 bg-electric-500 text-white shadow-[0_8px_24px_-8px_rgb(0_240_255/0.9)]" : "border-white/12 bg-white/5 text-mist-400 hover:border-white/30 hover:text-white")}
             >
               <Icon name={CATEGORY_ICON[c.icon] ?? "Printer"} className="size-4" />
               {c.title}
@@ -75,16 +75,16 @@ export function PrintCatalog() {
           {category.image ? (
             <Img src={category.image} alt={category.title} className="aspect-[4/3] w-full rounded-2xl object-cover" />
           ) : (
-            <div className="grid aspect-[4/3] place-items-center rounded-2xl bg-gradient-to-br from-electric-600/25 to-navy-800" aria-hidden="true">
+            <div className="grid aspect-[4/3] place-items-center rounded-2xl bg-gradient-to-br from-electric-500/25 to-navy-800" aria-hidden="true">
               <Icon name={CATEGORY_ICON[category.icon] ?? "Printer"} className="size-20 text-electric-300" strokeWidth={1.25} />
             </div>
           )}
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-extrabold text-white">{category.title}</h3>
-            <p className="mt-3 leading-8 text-slate-300">{category.desc}</p>
+            <p className="mt-3 leading-8 text-mist-400">{category.desc}</p>
             <ul className="mt-5 space-y-2">
               {category.bullets.map((b) => (
-                <li key={b} className="flex items-start gap-3 text-slate-200"><Icon name="Check" className="mt-1.5 size-4 shrink-0 text-electric-400" />{b}</li>
+                <li key={b} className="flex items-start gap-3 text-mist-100"><Icon name="Check" className="mt-1.5 size-4 shrink-0 text-electric-400" />{b}</li>
               ))}
             </ul>
             <div className="mt-6">
@@ -98,7 +98,7 @@ export function PrintCatalog() {
             {products.map((p) => (
               <StaggerItem key={p.id} lift>
                 <article className="glass flex h-full flex-col overflow-hidden rounded-2xl">
-                  <div className="grid aspect-[16/10] place-items-center overflow-hidden bg-navy-800">
+                  <div className="grid aspect-[16/10] place-items-center overflow-hidden bg-ink-850">
                     {p.image ? (
                       <Img src={p.image} alt={p.name} className="size-full object-cover" />
                     ) : p.icon ? (
@@ -110,8 +110,8 @@ export function PrintCatalog() {
                   <div className="flex flex-1 flex-col p-5">
                     <h4 className="text-lg font-extrabold text-white">{p.name}</h4>
                     <p className="mt-1 text-xs font-bold text-electric-300">{p.tag}</p>
-                    <p className="mt-3 flex-1 text-sm leading-7 text-slate-300">{p.desc}</p>
-                    <p className="mt-4 flex items-center gap-2 text-sm text-slate-300"><Clock className="size-4 text-electric-300" aria-hidden="true" />{p.turnaround}</p>
+                    <p className="mt-3 flex-1 text-sm leading-7 text-mist-400">{p.desc}</p>
+                    <p className="mt-4 flex items-center gap-2 text-sm text-mist-400"><Clock className="size-4 text-electric-300" aria-hidden="true" />{p.turnaround}</p>
                     <Button variant="outline" size="sm" className="mt-4 w-full" onClick={() => setTarget({ name: p.name, category: category.title, turnaround: p.turnaround, rush: p.rush, tips: p.tips })}>
                       سفارش و درخواست قیمت
                     </Button>
@@ -128,13 +128,13 @@ export function PrintCatalog() {
           <div>
             <h3 className="pe-12 text-2xl font-extrabold text-white">درخواست قیمت: {target.name}</h3>
             {target.turnaround ? (
-              <p className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-slate-300">
+              <p className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-mist-400">
                 <span className="inline-flex items-center gap-2"><Clock className="size-4 text-electric-300" aria-hidden="true" />زمان تحویل: {target.turnaround}</span>
                 {target.rush ? <span className="inline-flex items-center gap-2"><Zap className="size-4 text-amber-300" aria-hidden="true" />فوری: {target.rush}</span> : null}
               </p>
             ) : null}
             {target.tips && target.tips.length > 0 ? (
-              <ul className="mt-4 space-y-2 rounded-xl bg-white/5 p-4 text-sm leading-7 text-slate-200">
+              <ul className="mt-4 space-y-2 rounded-xl bg-white/5 p-4 text-sm leading-7 text-mist-100">
                 {target.tips.map((t) => (
                   <li key={t} className="flex items-start gap-2"><Lightbulb className="mt-1 size-4 shrink-0 text-amber-300" aria-hidden="true" />{t}</li>
                 ))}

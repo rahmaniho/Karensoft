@@ -69,7 +69,7 @@ export function CrispChat() {
       {state === "error" ? (
         <aside
           role="alert"
-          className="fixed bottom-[5.5rem] left-5 z-40 max-w-[min(22rem,calc(100vw-2.5rem))] rounded-2xl border border-white/15 bg-navy-900 p-4 text-sm leading-7 text-slate-200 shadow-2xl"
+          className="fixed bottom-[5.5rem] left-5 z-40 max-w-[min(22rem,calc(100vw-2.5rem))] rounded-2xl border border-white/15 bg-ink-850 p-4 text-sm leading-7 text-mist-100 shadow-2xl"
         >
           <p className="font-bold text-white">گفتگوی آنلاین موقتاً در دسترس نیست.</p>
           <a
@@ -88,7 +88,7 @@ export function CrispChat() {
         onClick={handleOpenChat}
         aria-label={state === "loading" ? "در حال اتصال به گفتگوی آنلاین" : "گفتگوی آنلاین با پشتیبانی کارن سافت"}
         aria-busy={state === "loading"}
-        className="group fixed bottom-5 left-5 z-40 inline-flex h-14 items-center gap-3 rounded-full border border-white/15 bg-electric-600 px-5 text-sm font-extrabold text-white shadow-[0_16px_42px_-16px_rgb(37_99_235/0.95)] transition-all hover:-translate-y-1 hover:bg-electric-500 focus-visible:outline-offset-4"
+        className="group fixed bottom-5 left-5 z-40 inline-flex h-14 items-center gap-3 rounded-full border border-white/15 bg-electric-500 px-5 text-sm font-extrabold text-white shadow-[0_16px_42px_-16px_rgb(0_240_255/0.95)] transition-all hover:-translate-y-1 hover:bg-electric-500 focus-visible:outline-offset-4"
       >
         <span className="grid size-9 place-items-center rounded-full bg-white/15">
           {state === "loading" ? (

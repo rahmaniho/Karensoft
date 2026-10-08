@@ -104,8 +104,8 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           {p.features.map((f) => (
             <StaggerItem as="li" key={f}>
               <div className="glass flex h-full items-start gap-4 rounded-2xl p-5">
-                <span className="mt-1 inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-electric-600/25 text-electric-300"><Check className="size-4" aria-hidden="true" /></span>
-                <span className="leading-8 text-slate-200">{f}</span>
+                <span className="mt-1 inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-electric-500/25 text-electric-300"><Check className="size-4" aria-hidden="true" /></span>
+                <span className="leading-8 text-mist-100">{f}</span>
               </div>
             </StaggerItem>
           ))}
@@ -120,7 +120,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
               <Card interactive className="h-full p-6">
                 <Icon name={MODULE_ICONS[i % MODULE_ICONS.length] ?? "Layout"} className="size-7 text-electric-300" />
                 <h3 className="mt-4 text-lg font-extrabold text-white">{m.title}</h3>
-                <p className="mt-2 leading-8 text-slate-300">{m.desc}</p>
+                <p className="mt-2 leading-8 text-mist-400">{m.desc}</p>
               </Card>
             </StaggerItem>
           ))}
@@ -133,7 +133,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
           <Stagger as="ul" className="mt-10 grid gap-5 md:grid-cols-3">
             {LAW_PLANS.map((l) => (
               <StaggerItem as="li" key={l.name}>
-                <Card className="h-full p-6 text-center"><h3 className="text-lg font-extrabold text-white">{l.name}</h3><p className="mt-2 text-slate-300">{l.desc}</p></Card>
+                <Card className="h-full p-6 text-center"><h3 className="text-lg font-extrabold text-white">{l.name}</h3><p className="mt-2 text-mist-400">{l.desc}</p></Card>
               </StaggerItem>
             ))}
           </Stagger>
@@ -144,7 +144,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         <Reveal>
           <Card className="p-6 sm:p-9">
             <h2 id="request-title" className="text-2xl font-extrabold text-white">{isActive ? "درخواست نسخه آزمایشی" : `از انتشار «${p.name}» باخبر شوید`}</h2>
-            <p className="mb-7 mt-2 leading-8 text-slate-300">
+            <p className="mb-7 mt-2 leading-8 text-mist-400">
               {isActive ? "اطلاعات خود را بگذارید تا نسخهٔ آزمایشی و راهنمای نصب را برایتان ارسال کنیم." : "این محصول هنوز منتشر نشده است. شمارهٔ تماس‌تان را بگذارید تا هنگام انتشار به شما اطلاع دهیم."}
             </p>
             <ContactForm

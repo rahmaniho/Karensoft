@@ -50,7 +50,7 @@ export function Accordion({ items, className }: { items: AccordionItem[]; classN
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="px-5 pb-5 leading-8 text-slate-300 sm:px-6">{item.a}</p>
+                  <p className="px-5 pb-5 leading-8 text-mist-400 sm:px-6">{item.a}</p>
                 </motion.div>
               ) : null}
             </AnimatePresence>
