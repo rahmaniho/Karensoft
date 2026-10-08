@@ -81,9 +81,9 @@ export default function VokalahomePage() {
                   مشاهده دموی زنده
                   <ArrowLeft className="size-5 transition-transform group-hover/btn:-translate-x-1" aria-hidden="true" />
                 </a>
-                <a href={EXTERNAL.vokalahomeRepo} target="_blank" rel="noopener noreferrer" className="inline-flex h-14 items-center justify-center rounded-xl border border-white/20 px-8 text-base font-bold text-white transition-all hover:-translate-y-0.5 hover:border-[#C9A227] hover:text-[#C9A227]">
-                  کد منبع در GitHub
-                </a>
+                <Link href="/portfolio/" className="inline-flex h-14 items-center justify-center rounded-xl border border-white/20 px-8 text-base font-bold text-white transition-all hover:-translate-y-0.5 hover:border-[#C9A227] hover:text-[#C9A227]">
+                  نمونه‌کارهای بیشتر
+                </Link>
               </div>
               <ul className="mt-8 flex flex-wrap gap-2" aria-label="فناوری‌های به‌کاررفته">
                 {TECH_BADGES.map((t) => (

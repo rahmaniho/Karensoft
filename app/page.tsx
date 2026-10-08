@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { StatsSection } from "@/components/sections/StatsSection";
 import { ProductsBento } from "@/components/sections/ProductsBento";
 import { ServicesOutline } from "@/components/sections/ServicesOutline";
+import { KarenChapSection } from "@/components/sections/KarenChapSection";
 import { FounderSpotlight } from "@/components/sections/FounderSpotlight";
 import { PortfolioGrid } from "@/components/sections/PortfolioGrid";
 import { BlogSection, HomeFaq, IndustriesTeaser, ProcessSection, TaxiBanner } from "@/components/sections/HomeSections";
@@ -44,6 +45,7 @@ export default function HomePage() {
       <TaxiBanner />
       <ProductsBento />
       <ServicesOutline />
+      <KarenChapSection />
       <PortfolioHighlights />
       <FounderSpotlight />
       <ProcessSection />

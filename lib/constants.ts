@@ -12,6 +12,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "خانه", href: "/", icon: "Home" },
   { label: "محصولات", href: "/products/", icon: "Boxes" },
   { label: "خدمات", href: "/services/", icon: "Workflow" },
+  { label: "کارن چاپ", href: "/services/printing/", icon: "Stamp" },
   { label: "دموی زنده", href: "/demos/", icon: "Play" },
   { label: "صنایع", href: "/industries/", icon: "Factory" },
   { label: "نمونه‌کارها", href: "/portfolio/", icon: "Layout" },

@@ -16,8 +16,6 @@ export interface PortfolioItem {
   href?: string;
   /** Public preview declared by the project repository. */
   liveUrl?: string;
-  /** Public source repository. */
-  repoUrl?: string;
   cta?: string;
   statusLabel?: string;
   featured?: boolean;
@@ -53,7 +51,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     accent: "#8b5cf6",
     tags: ["Web Audio", "پلیر سراسری", "Vanilla JS", "RTL"],
     liveUrl: "https://rahmaniho.github.io/musician/",
-    repoUrl: "https://github.com/rahmaniho/musician",
     statusLabel: "وب‌سایت آنلاین",
     year: "۱۴۰۴",
     role: "طراحی رابط، موتور صوتی و پیاده‌سازی کامل",
@@ -78,7 +75,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     accent: "#f59e0b",
     tags: ["HTML5 + CSS3", "Canvas", "بدون CDN", "دسترس‌پذیری AA"],
     liveUrl: "https://rahmaniho.github.io/Abolfazl-miramoo/",
-    repoUrl: "https://github.com/rahmaniho/Abolfazl-miramoo",
     statusLabel: "وب‌سایت آنلاین",
     year: "۱۴۰۴",
     role: "طراحی هویت بصری، انیمیشن‌ها و توسعهٔ فرانت‌اند",
@@ -103,7 +99,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     accent: "#10b981",
     tags: ["وب شرکتی", "JSON-LD", "Vanilla JS", "انتشار خودکار"],
     liveUrl: "https://rahmaniho.github.io/Qazvi_tasvir/",
-    repoUrl: "https://github.com/rahmaniho/Qazvi_tasvir",
     statusLabel: "وب‌سایت آنلاین",
     year: "۱۴۰۴",
     role: "بازطراحی کامل، سئو و استقرار روی GitHub Pages",
@@ -127,7 +122,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     accent: "#fbbf24",
     tags: ["Tailwind CSS", "سبد خرید", "سفارش واتساپی", "سئوی محلی"],
     liveUrl: "https://rahmaniho.github.io/icecream-factory/",
-    repoUrl: "https://github.com/rahmaniho/icecream-factory",
     statusLabel: "وب‌سایت آنلاین",
     year: "۱۴۰۴",
     role: "طراحی محصول، سیستم سفارش‌گیری و توسعه",
@@ -152,7 +146,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     tags: ["Next.js", "PWA", "سئو", "تور ۳۶۰°"],
     href: "/demos/vokalahome/",
     liveUrl: "https://rahmaniho.github.io/Vokalahome/",
-    repoUrl: "https://github.com/rahmaniho/Vokalahome",
     cta: "معرفی پروژه",
     statusLabel: "وب‌سایت آنلاین",
     featured: true,
@@ -170,7 +163,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     accent: "#2dd4bf",
     tags: ["Next.js", "PWA", "آفلاین‌محور", "گزارش حقوق"],
     liveUrl: "https://rahmaniho.github.io/Dastmozd2025/",
-    repoUrl: "https://github.com/rahmaniho/Dastmozd2025",
     statusLabel: "نسخهٔ آنلاین",
     featured: true,
   },
@@ -185,7 +177,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     accent: "#fbbf24",
     tags: ["PWA", "جست‌وجوی فارسی", "آفلاین", "حریم خصوصی"],
     liveUrl: "https://lawbookkarensoft.vercel.app",
-    repoUrl: "https://github.com/rahmaniho/Lawbook",
     statusLabel: "وب‌اپ آنلاین",
     featured: true,
   },
@@ -200,7 +191,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     accent: "#a78bfa",
     tags: ["Next.js", "کنترل کیفیت", "گزارش PDF/Excel", "RTL"],
     liveUrl: "https://qcprint-karensoft-afsharib73-7895.vercel.app",
-    repoUrl: "https://github.com/rahmaniho/QC_Print",
     statusLabel: "پیش‌نمایش محصول",
     featured: true,
   },
@@ -215,7 +205,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     accent: "#22d3ee",
     tags: ["معماری صنعتی", "KPI", "نقشهٔ راه", "پورتال داده"],
     liveUrl: "https://rahmaniho.github.io/Industrial_factory/",
-    repoUrl: "https://github.com/rahmaniho/Industrial_factory",
     statusLabel: "پورتال آنلاین",
   },
   {
@@ -229,7 +218,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     accent: "#fb923c",
     tags: ["React", "PWA", "داشبورد", "MVP نمایشی"],
     liveUrl: "https://karensoft-hse.vercel.app",
-    repoUrl: "https://github.com/rahmaniho/Karensoft-HSE",
     statusLabel: "دموی MVP",
   },
   {
@@ -245,7 +233,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     accent: "#f0c674",
     tags: ["React", "طراحی راست‌چین", "خدمات حقوقی", "تماس سریع"],
     liveUrl: "https://rahmaniho.github.io/leyla-abkeh-lawyer-site/",
-    repoUrl: "https://github.com/rahmaniho/leyla-abkeh-lawyer-site",
     statusLabel: "وب‌سایت آنلاین",
   },
   {
@@ -296,7 +283,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     tags: ["مدیریت پرونده", "تقویم شمسی", "گزارش مالی"],
     href: "/products/law-office/",
     liveUrl: "/live/law-office/",
-    repoUrl: "https://github.com/rahmaniho/Karensoft",
     cta: "جزئیات محصول",
     statusLabel: "دموی داخل سایت",
   },
@@ -314,7 +300,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     tags: ["رایگان", "تحت وب", "حسابداری", "PWA"],
     href: "/products/taxi-software/",
     liveUrl: "/taxi-app/",
-    repoUrl: "https://github.com/rahmaniho/taxi",
     cta: "جزئیات و دریافت",
     statusLabel: "نسخهٔ زنده",
   },
@@ -331,7 +316,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     accent: "#60a5fa",
     tags: ["چاپ", "مهر", "صحافی", "درخواست قیمت"],
     href: "/services/printing/",
-    repoUrl: "https://github.com/rahmaniho/karen-soft",
     cta: "مشاهده خدمات",
     statusLabel: "خدمات کارن سافت",
   },

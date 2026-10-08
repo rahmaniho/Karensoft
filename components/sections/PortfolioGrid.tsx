@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, CalendarDays, Code2, ExternalLink, Eye, Layers } from "lucide-react";
+import { ArrowLeft, CalendarDays, ExternalLink, Eye, Layers } from "lucide-react";
 import { TiltCard } from "@/components/fx/TiltCard";
 import { useSoundFx } from "@/components/fx/SoundProvider";
 import { PORTFOLIO_CATEGORY_LABEL, PORTFOLIO_ITEMS, type PortfolioCategory, type PortfolioItem } from "@/lib/portfolio";
@@ -213,12 +213,6 @@ function PortfolioModal({ item, onClose }: { item: PortfolioItem | null; onClose
               <ActionButton href={item.href} variant="secondary" size="sm">
                 {item.cta ?? "صفحهٔ معرفی"}
                 <ArrowLeft className="size-4 -scale-x-100" aria-hidden="true" />
-              </ActionButton>
-            ) : null}
-            {item.repoUrl ? (
-              <ActionButton href={item.repoUrl} variant="ghost" size="sm" external>
-                <Code2 className="size-4" aria-hidden="true" />
-                کد منبع
               </ActionButton>
             ) : null}
           </div>

@@ -102,18 +102,6 @@ export function PortfolioCard({ item }: { item: PortfolioItem }) {
               <ArrowLeft className="size-4" aria-hidden="true" />
             </Button>
           ) : null}
-          {item.repoUrl ? (
-            <Button
-              href={item.repoUrl}
-              size="sm"
-              variant="ghost"
-              external
-              aria-label={`مشاهده کد منبع پروژهٔ ${item.title} در GitHub`}
-            >
-              کد منبع
-              <Code2 className="size-4" aria-hidden="true" />
-            </Button>
-          ) : null}
         </div>
       </div>
     </article>

@@ -70,7 +70,6 @@ export const isCrispConfigured = /^[a-f0-9-]{36}$/i.test(siteConfig.crispWebsite
 
 export const EXTERNAL = {
   vokalahomeLive: "https://rahmaniho.github.io/Vokalahome/",
-  vokalahomeRepo: "https://github.com/rahmaniho/Vokalahome",
 } as const;
 
 /**
